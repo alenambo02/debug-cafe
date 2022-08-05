@@ -36,7 +36,7 @@ Item.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'order',
+        modelName: 'item',
     }
 )
 
