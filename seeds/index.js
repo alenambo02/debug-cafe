@@ -1,8 +1,8 @@
-const seedUsers = require('./userData-seed')
-const seedItems = require('./item-seed')
-const seedOrders = require('./order-seed')
-const seedCategories = require('./category-seed')
-const seedOrderItems = require('./orderItem-seeds')
+const seedUsers = require('./user-seeds')
+const seedItems = require('./item-seeds')
+const seedOrders = require('./order-seeds')
+const seedCategories = require('./category-seeds')
+const seedOrderItems = require('./order-seeds')
 const seedCategoryItems = require('./categoryItem-seeds')
 
 const sequelize = require('../config/connection');

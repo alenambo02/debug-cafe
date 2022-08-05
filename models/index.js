@@ -5,7 +5,7 @@ const Item = require('./Item');
 const Category = require('./Category');
 const CategoryItem = require('./CategoryItem');
 
-User.hasMany(Orders, {
+User.hasMany(Order, {
     foreignKey: "order_id"
 })
 

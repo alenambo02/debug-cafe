@@ -1,38 +1,98 @@
 const { OrderItem } = require('../models')
 
 const orderItemData = [
+    // Order
     {
-        "user_id": 1
+        "order_id": 1,
+        "item_id": 1
     },
     {
-        "user_id": 1
+        "order_id": 1,
+        "item_id": 20
+    },
+    // Order
+    {
+        "order_id": 2,
+        "item_id": 2
     },
     {
-        "user_id": 1
+        "order_id": 2,
+        "item_id": 19
+    },
+    // Order
+    {
+        "order_id": 3,
+        "item_id": 3
     },
     {
-        "user_id": 2
+        "order_id": 3,
+        "item_id": 18
+    },
+    // Order
+    {
+        "order_id": 4,
+        "item_id": 4
     },
     {
-        "user_id": 2
+        "order_id": 4,
+        "item_id": 17
+    },
+    // Order
+    {
+        "order_id": 5,
+        "item_id": 5
     },
     {
-        "user_id": 3
+        "order_id": 5,
+        "item_id": 16
+    },
+    // Order
+    {
+        "order_id": 6,
+        "item_id": 6
     },
     {
-        "user_id": 4
+        "order_id": 6,
+        "item_id": 15
+    },
+    // Order
+    {
+        "order_id": 7,
+        "item_id": 7
     },
     {
-        "user_id": 5
+        "order_id": 7,
+        "item_id": 14
+    },
+    // Order
+    {
+        "order_id": 8,
+        "item_id": 8
     },
     {
-        "user_id": 6
+        "order_id": 8,
+        "item_id": 13
+    },
+    // Order
+    {
+        "order_id": 9,
+        "item_id": 9
     },
     {
-        "user_id": 6
+        "order_id": 9,
+        "item_id": 12
+    },
+    // Order
+    {
+        "order_id": 10,
+        "item_id": 10
+    },
+    {
+        "order_id": 10,
+        "item_id": 11
     },
 ]
 
-const seedOrderItems = () => OrderItem.bulkCreate(orderItemData);
+const seedOrdersItems = () => Order.bulkCreate(orderItemData);
 
-module.exports = seedOrderItems
+module.exports = seedOrdersItems

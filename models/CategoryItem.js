@@ -36,4 +36,4 @@ CategoryItem.init(
     }
 );
 
-module.exports = OrderItem;
+module.exports = CategoryItem;

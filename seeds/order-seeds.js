@@ -33,6 +33,6 @@ const orderData = [
     },
 ]
 
-const seedOrders = () => Order.bulkCreate(orderData);
+const seedOrder = () => OrderItem.bulkCreate(orderData);
 
-module.exports = seedOrders
+module.exports = seedOrder
