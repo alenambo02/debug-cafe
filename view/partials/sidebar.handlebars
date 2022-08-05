@@ -1,0 +1,12 @@
+{{#if logged_in}}
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  {{#each items as |item| }}
+  <a>{{item.item_name}} - ${{item.price}}</a>
+  {{/each}}
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Your Order</button>
+</div>
+{{/if}}
