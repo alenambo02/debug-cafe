@@ -22,12 +22,12 @@ const seedDatabase = async () => {
 
   await seedOrders();
   console.log('\n----- Orders SEEDED -----\n');
-
-  await seedCategoryItems();
-  console.log('\n----- Item Category SEEDED -----\n');
-
+  
   await seedOrderItems();
   console.log('\n----- Order Items SEEDED -----\n');
+  
+    await seedCategoryItems();
+    console.log('\n----- Item Category SEEDED -----\n');
 
   process.exit(0);
 };

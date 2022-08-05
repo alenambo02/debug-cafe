@@ -1,6 +1,6 @@
-const { Item } = require('../models')
+const { CategoryItem } = require('../models')
 
-const itemData = [
+const categoryItemData = [
     // esspresso
     {
         "category_id": 1,
@@ -287,6 +287,6 @@ const itemData = [
     },
 ]
 
-const seedItems = () => Item.bulkCreate(itemData);
+const seedCategoryItems = () => CategoryItem.bulkCreate(categoryItemData);
 
-module.exports = seedItems
+module.exports = seedCategoryItems
