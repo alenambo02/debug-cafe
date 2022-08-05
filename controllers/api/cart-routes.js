@@ -1,13 +1,10 @@
 const router = require('express').Router();
-
-const postRoutes = require('./post-routes');
-
-const { Order } = require('../../models');
+const { Cart } = require('../../models');
 
 // Get all orders
 router.get('/', async (req, res) => {
     try {
-        const orderData = await Order.findAll({
+        const cartData = await Cart.findAll({
             attributes: ['id', 'user_id'],
             include: [{
                 model: User,
@@ -18,7 +15,7 @@ router.get('/', async (req, res) => {
                 attributes: ['item_name','price']
         }]
         });
-        res.status(200).json(orderData);
+        res.status(200).json(cartData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -27,7 +24,7 @@ router.get('/', async (req, res) => {
 // Get order by ID
 router.get('/:id', async (req, res) => {
     try {
-        const orderData = await Order.findByPk(req.params.id, {
+        const cartData = await Cart.findByPk(req.params.id, {
             attributes: ['id', 'user_id'],
             include: [{
                 model: User,
@@ -39,12 +36,12 @@ router.get('/:id', async (req, res) => {
         }]
         });
 
-        if (!orderData) {
+        if (!cartData) {
             res.status(404).json({ message: 'No order found' });
             return;
           }
 
-        res.status(200).json(orderData);
+        res.status(200).json(cartData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -52,7 +49,7 @@ router.get('/:id', async (req, res) => {
 
 // Post order
 router.post('/', (req, res) => {
-    Order.create(req.body)
+    Cart.create(req.body)
       .then((order) => {
         if (req.body.itemIds.length) {
           const OrderItemIdArr = req.body.itemIds.map((item_id) => {
@@ -61,7 +58,7 @@ router.post('/', (req, res) => {
               item_id,
             };
           });
-          return OrderItem.bulkCreate(OrderItemIdArr);
+          return CartItem.bulkCreate(OrderItemIdArr);
         }
         res.status(200).json(order);
       })
@@ -74,13 +71,13 @@ router.post('/', (req, res) => {
 
 // Update order
 router.put('/:id', (req, res) => {
-    Order.update(req.body, {
+    Cart.update(req.body, {
       where: {
         id: req.params.id,
       },
     })
       .then((order) => {
-        return OrderItem.findAll({ where: { order_id: req.params.id } });
+        return CartItem.findAll({ where: { order_id: req.params.id } });
       })
       .then((orderItems) => {
         // get list of current
@@ -101,8 +98,8 @@ router.put('/:id', (req, res) => {
   
         // run both actions
         return Promise.all([
-          OrderItem.destroy({ where: { id: orderItemsToRemove } }),
-          OrderItem.bulkCreate(newOrderedItems),
+          CartItem.destroy({ where: { id: orderItemsToRemove } }),
+          CartItem.bulkCreate(newOrderedItems),
         ]);
       })
       .then((updatedOrderItems) => res.json(updatedOrderItems))
@@ -115,20 +112,20 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', async (req, res) => {
     // delete one by its `id` value
     try {
-      const orderData = await Order.destroy({
+      const cartData = await Cart.destroy({
         where: {
           id: req.params.id,
         },
       });
   
-      if (!orderData) {
+      if (!cartData) {
         res.status(404).json({ message: 'No order found' });
         return;
       }
-      res.status(200).json(orderData);
+      res.status(200).json(cartData);
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-//id, user_id
+  module.exports = router;
