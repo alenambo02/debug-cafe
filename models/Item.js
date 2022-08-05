@@ -15,6 +15,10 @@ Item.init(
             type: DataTypes.STRING,
             allowNull:false,
         },
+        item_description:{
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
         price:{
             type: DataTypes.DECIMAL,
             allowNull: false,

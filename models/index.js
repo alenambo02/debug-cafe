@@ -1,28 +1,28 @@
 const User = require('./User');
-const Order = require('./Order');
-const OrderItem = require('./OrderItem');
+const Cart = require('./Cart');
+const CartItem = require('./CartItem');
 const Item = require('./Item');
 const Category = require('./Category');
 const CategoryItem = require('./CategoryItem');
 
-User.hasMany(Orders, {
-    foreignKey: "order_id"
+User.hasMany(Cart, {
+    foreignKey: "user_id"
 })
 
-Order.belongsTo(User,{
-    foreignKey: "order_id"
+Cart.belongsTo(User,{
+    foreignKey: "user_id"
 })
 
-Item.belongsToMany(Order,{
+Item.belongsToMany(Cart,{
     through:{
-        model:OrderItem,
+        model:CartItem,
         unique: false
     }
 })
 
-Order.belongsToMany(Item,{
+Cart.belongsToMany(Item,{
     through:{
-        model:OrderItem,
+        model:CartItem,
         unique: false
     }
 })
@@ -41,4 +41,4 @@ Item.belongsToMany(Category,{
     }
 })
 
-module.exports = { User, Order, OrderItem, Item, Category, CategoryItem };
+module.exports = { User, Cart, CartItem, Item, Category, CategoryItem };
