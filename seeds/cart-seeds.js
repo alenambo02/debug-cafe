@@ -1,6 +1,6 @@
-const { Order } = require('../models')
+const { Cart } = require('../models')
 
-const orderData = [
+const cartData = [
     {
         "user_id": 1
     },
@@ -33,6 +33,6 @@ const orderData = [
     },
 ]
 
-const seedOrder = () => Order.bulkCreate(orderData);
+const seedCarts = () => Cart.bulkCreate(cartData);
 
-module.exports = seedOrder
+module.exports = seedCarts;

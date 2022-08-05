@@ -1,35 +1,35 @@
 const seedUsers = require('./user-seeds')
 const seedItems = require('./item-seeds')
-const seedOrders = require('./order-seeds')
+const seedCarts = require('./cart-seeds')
 const seedCategories = require('./category-seeds')
-const seedOrderItems = require('./order-seeds')
+const seedCartItems = require('./cartItem-seeds')
 const seedCategoryItems = require('./categoryItem-seeds')
 
 const sequelize = require('../config/connection');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-  console.log('\n----- DATABASE SYNCED -----\n');
+    await sequelize.sync({ force: true });
+    console.log('\n----- DATABASE SYNCED -----\n');
 
-  await seedUsers();
-  console.log('\n----- USERS SEEDED -----\n');
+    await seedUsers();
+    console.log('\n----- USERS SEEDED -----\n');
 
-  await seedItems();
-  console.log('\n----- Items SEEDED -----\n');
+    await seedItems();
+    console.log('\n----- Items SEEDED -----\n');
 
-  await seedCategories();
-  console.log('\n----- Categories SEEDED -----\n');
+    await seedCategories();
+    console.log('\n----- Categories SEEDED -----\n');
 
-  await seedOrders();
-  console.log('\n----- Orders SEEDED -----\n');
-  
-  await seedOrderItems();
-  console.log('\n----- Order Items SEEDED -----\n');
+    await seedCarts();
+    console.log('\n----- Carts SEEDED -----\n');
+    
+    await seedCartItems();
+    console.log('\n----- Cart Items SEEDED -----\n');
   
     await seedCategoryItems();
     console.log('\n----- Item Category SEEDED -----\n');
 
-  process.exit(0);
+    process.exit(0);
 };
 
 seedDatabase();

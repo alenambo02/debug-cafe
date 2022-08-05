@@ -289,4 +289,4 @@ const categoryItemData = [
 
 const seedCategoryItems = () => CategoryItem.bulkCreate(categoryItemData);
 
-module.exports = seedCategoryItems
+module.exports = seedCategoryItems;
