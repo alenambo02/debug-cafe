@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { Cart } = require('../../models');
+const { User, Cart, Category, Item, CartItem } = require('../../models');
 
 // Get all orders
 router.get('/', async (req, res) => {
     try {
         const cartData = await Cart.findAll({
-            attributes: ['id', 'user_id'],
             include: [{
                 model: User,
                 attributes: ['email']
@@ -20,12 +19,19 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+// router.get('/', async (req, res) => {
+//     try {
+//         const cartData = await Cart.findAll({ });
+//         res.status(200).json(cartData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // Get order by ID
 router.get('/:id', async (req, res) => {
     try {
         const cartData = await Cart.findByPk(req.params.id, {
-            attributes: ['id', 'user_id'],
             include: [{
                 model: User,
                 attributes: ['email']
@@ -49,20 +55,29 @@ router.get('/:id', async (req, res) => {
 
 // Post order
 router.post('/', (req, res) => {
+	/** sample req.body
+	 * {
+			"user_id": 1,
+			"completed": false,
+			"itemIds": [1]
+		}
+	 */
     Cart.create(req.body)
-      .then((order) => {
+      .then((cart) => {
+		console.log('cart', cart)
         if (req.body.itemIds.length) {
-          const OrderItemIdArr = req.body.itemIds.map((item_id) => {
+          const CartItemIdArr = req.body.itemIds.map((item_id) => {
             return {
-              order_id: order.id,
+              cart_id: cart.id,
               item_id,
             };
           });
-          return CartItem.bulkCreate(OrderItemIdArr);
+		  console.log(CartItemIdArr)
+          return CartItem.bulkCreate(CartItemIdArr);
         }
-        res.status(200).json(order);
+        res.status(200).json(cart);
       })
-      .then((OrderItemIds) => res.status(200).json(OrderItemIds))
+      .then((CartItemIds) => res.status(200).json(CartItemIds))
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
@@ -71,38 +86,45 @@ router.post('/', (req, res) => {
 
 // Update order
 router.put('/:id', (req, res) => {
+	/** return body
+	 * {
+			"user_id": 1,
+			"completed": false,
+			"itemIds": [1,2]
+		}
+	 */
     Cart.update(req.body, {
       where: {
         id: req.params.id,
       },
     })
-      .then((order) => {
-        return CartItem.findAll({ where: { order_id: req.params.id } });
+      .then((cart) => {
+        return CartItem.findAll({ where: { cart_id: req.params.id } });
       })
-      .then((orderItems) => {
+      .then((cartItems) => {
         // get list of current
-        const orderItemsIds = orderItems.map(({ order_id }) => order_id);
+        const cartItemsIds = cartItems.map(({ cart_id }) => cart_id);
         // create filtered list
-        const newOrderedItems = req.body.itemIds
-          .filter((item_id) => !orderItemsIds.includes(item_id))
+        const newCartItems = req.body.itemIds
+          .filter((item_id) => !cartItemsIds.includes(item_id))
           .map((item_id) => {
             return {
-                order_id: order.id,
+                cart_id: req.params.id,
                 item_id,
               };
           });
         // figure out which ones to remove
-        const orderItemsToRemove = orderItems
+        const cartItemsToRemove = cartItems
           .filter(({ item_id }) => !req.body.itemIds.includes(item_id))
           .map(({ id }) => id);
   
         // run both actions
         return Promise.all([
-          CartItem.destroy({ where: { id: orderItemsToRemove } }),
-          CartItem.bulkCreate(newOrderedItems),
+          CartItem.destroy({ where: { id: cartItemsToRemove } }),
+          CartItem.bulkCreate(newCartItems),
         ]);
       })
-      .then((updatedOrderItems) => res.json(updatedOrderItems))
+      .then((updatedcartItems) => res.json(updatedcartItems))
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
