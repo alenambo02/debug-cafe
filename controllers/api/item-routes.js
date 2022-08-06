@@ -30,6 +30,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+
 // router.post('/', async (req, res) =>{
 //     try{
 //         const itemData = await item.create({
@@ -45,6 +46,7 @@ router.get('/:id', async (req, res) => {
 //         res.status(500).json(err);
 //     }
 // })
+
 
 module.exports = router;
 
