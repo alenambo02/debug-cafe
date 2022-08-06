@@ -14,7 +14,7 @@ router.get('/', withAuth, async(req, res) => {
         })
         const items = itemData.map((item) => item.get({ plain: true })
     );
-        res.render('ordermenu', {items, loggedIn: req.session.loggedIn})
+        res.render('order', {items, loggedIn: req.session.loggedIn})
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
