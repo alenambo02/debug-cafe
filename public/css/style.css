@@ -1,11 +1,46 @@
 /* #full-image {
-    background-image: url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    opacity: 0.9;
 } */
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(14, 14, 14);
+}
+
+#main-navbar {
+    background-color: tan;
+}
+
+#main-image {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+}
+
+#login-box {
+    background-color: rgb(200, 169, 129);
+    margin: auto;
+    border: 10px solid rgb(4, 4, 4);
+    padding: 10px;
+    margin-top: 150px;
+ 
+}
+
+form {
+    font-weight: bolder;
+    padding: 20px;
+} 
+
    
-#full-image {
+/* #full-image {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
@@ -24,7 +59,7 @@
     bottom: 0px;
     left: 0px;
     opacity: 0.95;
-}
+} */
 
 
 html {
@@ -33,11 +68,9 @@ html {
 }
 
 img {
-    position: relative;
-    font-size: 14rem;
-    line-height: 0.9;
     text-align: center;
     height: 80px;
     width: 300px;
-  }
+    
+}
 

@@ -10,17 +10,12 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 </head>
 
-<body id="full-image">
-    <div class="flex-column justify-space-around">
+<body id="main-image">
+    <div>
         <div>  
-            <h1>
-                {{!-- <a href="/">The Debug Cafe!</a> --}}
-                <img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo">
-            </h1>
-
-            <nav>
-                {{#if logged_in}}
+            <nav id="main-navbar" type="button" class="btn btn-outline-secondary">
                 <a href="/menu">Menu</a> |
+                {{#if logged_in}}
                 <button class="no-button" id="logout">logout</button>
                 {{else}}
                 <a href="/login">login</a>
@@ -28,7 +23,7 @@
             </nav>
         </div>    
 
-        <main class="container">
+        <main>
      
         {{{ body }}}
         </main>
