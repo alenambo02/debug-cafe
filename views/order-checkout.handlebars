@@ -1,3 +1,4 @@
+<div>
 <header>
     Order{{id}}
 </header>
@@ -10,7 +11,9 @@
     <br>
     <p></p>
 </aside>
+</div>
 
+<div>
 {{#each items as |order.item| }}
 <section class="item">
     <h3>{{ item_name }}</h3>
@@ -22,3 +25,4 @@
     <p>Subtotal {{totalCost}}</p>
     <p>Tax {{(totalCost/100)}}</p>
     <p>Total {{(totalCost/100)+totalCost}}</p>
+    </div>

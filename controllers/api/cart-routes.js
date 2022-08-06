@@ -50,11 +50,11 @@ router.get('/:id', async (req, res) => {
 // Post order
 router.post('/', (req, res) => {
     Cart.create(req.body)
-      .then((order) => {
+      .then((cart) => {
         if (req.body.itemIds.length) {
-          const OrderItemIdArr = req.body.itemIds.map((item_id) => {
+          const CartItemIdArr = req.body.itemIds.map((item_id) => {
             return {
-              order_id: order.id,
+              order_id: cart.id,
               item_id,
             };
           });
