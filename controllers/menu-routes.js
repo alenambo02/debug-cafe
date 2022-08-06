@@ -8,7 +8,7 @@ router.get('/', async(req, res) => {
         const itemData = await Item.findAll({
             include: [{ model: Category }]
         })
-        const items = itemData.map((post) => post.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
         res.render('menu', {items, loggedIn: req.session.loggedIn})
     } catch (err) {

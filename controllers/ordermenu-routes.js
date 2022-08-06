@@ -12,7 +12,7 @@ router.get('/', withAuth, async(req, res) => {
             },
             include: [{ model: Category }, { model: User } ]
         })
-        const items = itemData.map((post) => post.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
         res.render('ordermenu', {items, loggedIn: req.session.loggedIn})
     } catch (err) {

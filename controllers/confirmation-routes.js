@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const { User, Item, Cart, Category } = require('../models')
+const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async(req, res) => {
     try {
@@ -8,9 +9,9 @@ router.get('/', withAuth, async(req, res) => {
             where: {
                 user_id: req.session.user_id
             },
-            include: [{ model: Category }]
+            include: [{ model: Category }, { model: User } ]
         })
-        const items = itemData.map((post) => post.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
         res.render('confirmation', {items, loggedIn: req.session.loggedIn})
     } catch (err) {
@@ -25,9 +26,9 @@ router.get('/item:id', withAuth, async(req, res) => {
             where: {
                 user_id: req.session.user_id
             },
-            include: [{ model: Category }]
+            include: [{ model: Category }, { model: User } ]
         })
-        const items = itemData.map((post) => post.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
         res.render('confirmation', {items, loggedIn: req.session.loggedIn})
     } catch (err) {

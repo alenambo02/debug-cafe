@@ -18,6 +18,10 @@ Cart.init(
                 model: 'user',
                 key: "id",
             }
+        },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull:false
         }
     },
     {
