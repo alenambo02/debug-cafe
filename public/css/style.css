@@ -4,6 +4,21 @@
     background-size: 100% 100%;
 } */
 
+/* main handlebar styling
+   ========================================================================== */ 
+
+html {
+    height: 100%;
+   
+}
+
+img {
+    text-align: center;
+    height: 80px;
+    width: 300px;
+    
+}
+
 .center {
     display: flex;
     align-items: center;
@@ -22,8 +37,14 @@ a {
 #main-image {
     background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 100%; 
+    background-size: cover; 
+    background-attachment: fixed;
+
 }
+
+/* login form styling
+   ========================================================================== */ 
+
 
 #login-box {
     background-color: rgb(200, 169, 129);
@@ -38,6 +59,24 @@ form {
     font-weight: bolder;
     padding: 20px;
 } 
+
+/* menu handlebar styling (the menu without login view)
+   ========================================================================== */ 
+#menu-box {
+    background-color: rgb(200, 169, 129);
+    margin: auto;
+    border: 10px solid rgb(4, 4, 4);
+    padding: 10px;
+   
+ 
+}
+
+
+
+
+
+
+
 
    
 /* #full-image {
@@ -62,15 +101,4 @@ form {
 } */
 
 
-html {
-    height: 100%;
-   
-}
-
-img {
-    text-align: center;
-    height: 80px;
-    width: 300px;
-    
-}
 

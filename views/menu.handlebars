@@ -1,16 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+</nav>
 {{#each items as |item| }}
-<section>
-    <div>
-        <h3 id="item-title">{{ item.item_name }}</h3>
-    </div>
+    <section id="container" class="row">
+        <div id="menu-box" class="col-6">
+            <div>
+                <h3 id="item-title">{{ item.item_name }}</h3>
+            </div>
 
-     <div>   
-        <p id="item-description">{{ item.item_description }}</p>
-        <p id="item-price"> {{ item.price }}</p>
-    </div>
+            <div>   
+                <p id="item-description">{{ item.item_description }}</p>
+                <p id="item-price"> {{ item.price }}</p>
+            </div>
 
-     <div>
-        <p id="item-title">{{ item.item_name }}</p>
-    </div>
-</section>
+            <div>
+                <p id="item-title">{{ item.item_name }}</p>
+            </div>
+        </div> 
+    </section>
+
 {{/each}}
