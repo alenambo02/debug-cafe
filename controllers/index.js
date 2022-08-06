@@ -11,7 +11,7 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/menu', menuRoutes);
 router.use('/order', orderRoutes);
-router.use('/order', confirmOrderRoutes);
+router.use('/confirm', confirmOrderRoutes);
 
 module.exports = router;
 
