@@ -1,14 +1,4 @@
-/* #full-image {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-html {
-    height: 100%
-}
-    
-
+/* 
 #full-image::before {    
     content: "";
     background-image: url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
@@ -93,3 +83,104 @@ body {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
+
+
+/* ale styling
+   ========================================================================== */  
+
+/* main handlebar styling
+   ========================================================================== */ 
+
+html {
+  height: 100%;
+ 
+}
+
+img {
+  text-align: center;
+  height: 80px;
+  width: 300px;
+  
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(14, 14, 14);
+}
+
+#main-navbar {
+  background-color: tan;
+}
+
+#main-image {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed;
+
+}
+
+/* login form styling
+ ========================================================================== */ 
+
+
+#login-box {
+  background-color: rgb(200, 169, 129);
+  margin: auto;
+  border: 10px solid rgb(4, 4, 4);
+  padding: 10px;
+  margin-top: 150px;
+
+}
+
+form {
+  font-weight: bolder;
+  padding: 20px;
+} 
+
+/* menu handlebar styling (the menu without login view)
+ ========================================================================== */ 
+#menu-box {
+  background-color: rgb(200, 169, 129);
+  margin: auto;
+  border: 10px solid rgb(4, 4, 4);
+  padding: 10px;
+ 
+
+}
+
+
+
+/* #full-image {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+} */
+
+ 
+/* #full-image {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+  
+
+#full-image::before {    
+  content: "";
+  background-image: url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.95;
+} */
