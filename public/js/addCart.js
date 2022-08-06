@@ -1,5 +1,3 @@
-const sequelize = require('../config/connection');
-
 const addToCart = async (event) => {
     event.preventDefault();
   
@@ -29,14 +27,3 @@ const addToCart = async (event) => {
       }
     }
 }
-
-/*
-totalCost: {
-              include: [
-                [
-                  sequelize.literal(
-                    '(SELECT SUM(price) FROM item WHERE cart.item_id = item.id)'
-                  ),
-                  'totalCost',
-                ],
-              ]}*/
