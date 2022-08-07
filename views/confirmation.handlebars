@@ -1,15 +1,42 @@
+{{> header}}
+
 <div id="container" class="row">
     <div class="w-50 mx-auto justify-content-center text-center">
-        <h4 class="text-center text-white">Current Order:</h4>
-        <ul class="list-group mb-4">
-            {{#if cart.id}}
-            <li class="list-group-item">Order #{{cart.id}}</li>
-            {{else}}
-            <li class="list-group-item">There are no current Orders</li>
-            {{/if}}
+        <h4 class="text-white">Order for {{cart.user.email}}</h4>
+        <ul class="list-group">    
+        {{#if cart.id}}
+        <li class="list-group-item ">Order #{{cart.id}}</li>
+        {{else}}
+        <li class="list-group-item">There are no current Orders</li>
+        {{/if}}
             {{#each cart.items as |item|}}
-            <li class="list-group-item d-flex justify-content-between"><p>{{item.item_name}}</p><p>${{item.price}}</p></li>
+            <li class="list-group-item">
+                <div class="row align-items-start">
+                    <p class="col text-end">Item:</p>
+                    <p class="col text-start">{{item.item_name}}</p>
+                    <p class="col text-end">${{item.price}}</p>
+                </div>
+            </li>
             {{/each}}
+            <li class="list-group-item">
+                <div class="row align-items-start">
+                    <p class="col-11 text-end">Subtotal:</p>
+                    <p class="col text-end">${{getSum cart.items}}</p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row align-items-start">
+                    <p class="col-11 text-end">Tax:</p> 
+                    <p class="col text-end">${{getTax cart.items}}</p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row align-items-start">
+                    <p class="col-11 text-end">Total:</p> 
+                    <p class="col text-end">${{getTotal cart.items}}</p>
+                </div>
+            </li>
         </ul>
+        <div class="container text-center">
     </div>
 </div>
