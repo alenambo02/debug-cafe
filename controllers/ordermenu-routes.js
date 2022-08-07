@@ -11,7 +11,7 @@ router.get('/', async(req, res) => {
             include: [{ model: Category}]
 
         })
-        const carts = itemData.map((item) => item.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
     console.log("hello")
         res.render('ordermenu', {items, loggedIn: req.session.loggedIn})
