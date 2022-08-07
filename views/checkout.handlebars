@@ -6,8 +6,8 @@
             <h3 class="text-black text-center">Order Confirmation</h3>
         </div>
     <div class="col-8 d-flex justify-content-center">
-        <div class="d-flex p-2 w-75 h-75 align-items-center justify-content-center bg-secondary">
-            <h4 class="text-white    text-center">Order for {{cart.user.email}}</h4>
+        <div class="d-flex p-2 w-75 h-75 align-items-center justify-content-center bg-secondary" id="payment">
+            <h4 class="text-white text-center">Order for {{cart.user.email}}</h4>
         </div>
     </div>
         <div class="col-4 mx-auto justify-content-center">
@@ -44,3 +44,6 @@
         </div>
 </div>
 </div>
+
+<script src="./js/checkout.js"></script>
+<script src="https://js.stripe.com/v3/"></script>

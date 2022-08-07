@@ -15,7 +15,7 @@ router.use('/menu', menuRoutes);
 router.use('/orders', orderRoutes);
 router.use('/account', accountRoutes);
 router.use('/confirm', confirmOrderRoutes);
-router.use('/confirm', checkoutRoutes);
+router.use('/checkout', checkoutRoutes);
 
 module.exports = router;
 
