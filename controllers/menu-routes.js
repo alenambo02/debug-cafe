@@ -17,22 +17,106 @@ router.get('/', async(req, res) => {
     }
 })
 
+router.get('/:category', async(req, res) => {
+    try {
+        const categoryData = await Category.findOne( {
+            where: {
+                category_name: req.params.category
+            },
+            include: [{ model: Item }],
+        });
+       
+        const category = categoryData.get({ plain: true });
+
+        // const category = categoryData.map((category) => category.get({ plain: true })
+      
+        console.log(categoryData)
+        res.render('menu', {category, loggedIn: req.session.loggedIn});
+        // res.status(200).json(categoryData)
+      
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/', async(req, res) => {
+    try {
+        const teaData = await Category.findOne( {
+            where: {
+                category_name: "tea",
+            },
+            include: [{ model: Item }],
+        });
+        const tea = teaData.get({ plain: true });
+        
+        const coffeeData = await Category.findOne( {
+            where: {
+                category_name: "coffee",
+            },
+            include: [{ model: Item }],
+        });
+      
+        const coffee = coffeeData.get({ plain: true });
+
+        const foodData = await Category.findOne( {
+            where: {
+                category_name: "food",
+            },
+            include: [{ model: Item }],
+        });
+      
+        const food = foodData.get({ plain: true });
+       
+        const coldData = await Category.findOne( {
+            where: {
+                category_name: "cold",
+            },
+            include: [{ model: Item }],
+        });
+      
+        const cold = coldData.get({ plain: true });
+
+        
+        // const category = categoryData.map((category) => category.get({ plain: true })
+    //   console.log(tea)
+    //   console.log(coffee)
+    //   console.log(cold)
+    //   console.log(food)
+
+      
+        
+        // res.render('menu', {tea,food,coffee,cold, loggedIn: req.session.loggedIn});
+        res.status(200).json(teaData)
+      
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
 // router.get('/:category', async(req, res) => {
 //     try {
-//         const categoryData = await Category.findOne(req.params.category, {
+//         const categoryData = await Category.findOne( {
+//             where: {
+//                 category_name: req.params.category
+//             },
 //             include: [{ model: Item }],
 //         });
 //         const category = categoryData.get({ plain: true });
 //         // const category = categoryData.map((category) => category.get({ plain: true })
-//         // );
+      
 //         console.log(categoryData)
-//         res.render('bycategory', {category, loggedIn: req.session.loggedIn});
+//         res.render('food', {category, loggedIn: req.session.loggedIn});
+//         // res.status(200).json(categoryData)
       
 //     } catch (err) {
 //         console.log(err);
 //         res.status(500).json(err);
 //     }
 // });
+
 
 
 
@@ -49,32 +133,11 @@ router.get('/login', (req, res) => {
 
 
 
+
+
+
 module.exports = router;
 
 
 
-// attributes: [
-//     'id',
-//     'item_name',
-//     'item_description',
-//     'price',
-//     'stock',
-//   ], 
 
-router.get('/:category', async(req, res) => {
-    try {
-        const categoryData = await Category.findByPk(req.params.id, {
-            include: [{ model: Item }],
-        });
-        const category = categoryData.get({ plain: true });
-        // const category = categoryData.map((category) => category.get({ plain: true })
-        // );
-        console.log("hello")
-        console.log(categoryData)
-        res.render('bycategory', {category, loggedIn: req.session.loggedIn});
-      
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
