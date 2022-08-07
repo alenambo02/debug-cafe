@@ -9,7 +9,9 @@
   </div>
   <div class="offcanvas-body">
     <div style="list-style-type: none;">
-            <li> {{item_name}} - ${{price}} </li>
+      {{#each items as |item| }}
+            <li "item-title item-price" > {{item.item_name}} - ${{item.price}} </li>
+            {{/each}}
     </div>
   </div>
 </div>
