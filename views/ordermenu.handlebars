@@ -1,12 +1,34 @@
 {{!-- href menu  --}}
-{{#each items as |item| }}
-<section>
-    <button class="no-button" id="item-title">{{ item_name }}</button>
-    <p id="item-description">{{ description }}</p>
-    <p id="item-price"> {{ price }} </p>
-</section>
-
-<section>
-    <p id="item-stock"> {{ stock }} </p>
+<header>
+    <div id="menu-image">
+        <img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo">
+    </div> 
+    <nav id="homepage-navbar" type="button" class="btn btn-outline-secondary">
+            
+            {{#if loggedIn}}
+            <a href="/orders">Order</a> 
+            <a href="" id="logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+    </nav>
     
-</section>
+</header>
+
+{{#each items as |item| }}
+    <section id="container" class="row">
+        <div id="menu-box" class="col-6">
+            <div>
+                <h3 id="item-title">{{ item.item_name }}</h3>
+            </div>
+            <div>   
+                <p id="item-description">{{ item.item_description }}</p>
+                <p id="item-price"> {{ item.price }}</p>
+            </div>
+
+            <div>
+                
+            </div>
+        </div> 
+    </section>
+{{/each}}
