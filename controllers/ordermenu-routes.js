@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User, Item, Cart, Category } = require('../models')
+const { Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');
 
 //can view menu 
@@ -11,7 +11,7 @@ router.get('/', async(req, res) => {
             include: [{ model: Category}]
 
         })
-        const carts = itemData.map((item) => item.get({ plain: true })
+        const items = itemData.map((item) => item.get({ plain: true })
     );
     console.log("hello")
         res.render('ordermenu', {items, loggedIn: req.session.loggedIn})

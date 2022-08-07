@@ -16,6 +16,38 @@ router.get('/', async(req, res) => {
         res.status(500).json(err)
     }
 })
+
+router.get('/menu/:category', async(req, res) => {
+    try {
+        const categoryData = await Category.findOne(req.params.category, {
+            include: [
+            { 
+                model: Item, 
+                attributes: [
+                    'id',
+                    'item_name',
+                    'item_description',
+                    'price',
+                    'stock',
+                  ], 
+                },
+            ],
+        });
+        const category = categoryData.get({ plain: true });
+        // const category = categoryData.map((category) => category.get({ plain: true })
+        // );
+
+        res.render('bycategory', {category, loggedIn: req.session.loggedIn});
+      
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
+
+
 //if trying to order they will be redirected to login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
