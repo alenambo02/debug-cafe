@@ -1,6 +1,12 @@
 <ul class="list-group mb-4">
 <li class="list-group-item">Order #{{id}}</li>
 {{#each items as |item|}}
-<li class="list-group-item d-flex justify-content-between"><p>{{item_name}}</p><p>${{price}}</p></li>
+    <li class="list-group-item">
+        <div class="row align-items-start">
+            <p class="col text-end">Item:</p>
+            <p class="col text-start">{{item.item_name}}</p>
+            <p class="col text-end">${{item.price}}</p>
+        </div>
+    </li>
 {{/each}}
 </ul>
