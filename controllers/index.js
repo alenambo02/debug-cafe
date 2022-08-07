@@ -11,7 +11,7 @@ const confirmOrderRoutes = require('./confirmation-routes');
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/menu', menuRoutes);
-router.use('/order', orderRoutes);
+router.use('/orders', orderRoutes);
 router.use('/account', accountRoutes);
 router.use('/confirm', confirmOrderRoutes);
 
