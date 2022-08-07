@@ -1,9 +1,9 @@
 const addtoOthers = async (event) => {
     event.preventDefault();
 
-    const id = document.querySelector('#orderID').value.trim();
-    const email = document.querySelector('#user-email').value.trim();
-    const item = document.querySelector('#item').value.trim();
+    const id = document.querySelector('#id').value.trim();
+    // const email = document.querySelector('#').value.trim();
+    // const item = document.querySelector('#item').value.trim();
 
     /*
     const item_name = document.querySelector('#item_name').value.trim();
@@ -11,14 +11,14 @@ const addtoOthers = async (event) => {
     const price = document.querySelector('#price').value.trim();
     */
   
-    if (id && email) {
-      const response = await fetch(`/api/cart`, {
+    if (id) {
+      const response = await fetch(`/api/carts`, {
         method: 'POST',
         body: JSON.stringify(
           { 
             id,
-            email,
-            item,
+            // email: email,
+            // item: item,
          }),
         headers: {
           'Content-Type': 'application/json',

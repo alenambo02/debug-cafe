@@ -10,7 +10,9 @@
   <div class="offcanvas-body">
     <div style="list-style-type: none;">
       {{#each items as |item| }}
-            <li "item-title item-price" > {{item.item_name}} - ${{item.price}} </li>
+      {{!-- {{#each carts as |cart| }} --}}
+            {{!-- <li> {{item.item_name}} - ${{item.price}} </li> --}}
+            <li> {{item}} </li>
             {{/each}}
     </div>
   </div>
