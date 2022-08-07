@@ -3,6 +3,14 @@
     <div id="menu-image">
         <img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo">
     </div> 
+    <nav id="homepage-navbar" type="button" class="btn btn-outline-secondary">
+            <a href="/menu">Menu</a> |
+            {{#if loggedIn}}
+            <a href="" id="logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+    </nav>
     
 </header>
 
@@ -18,7 +26,7 @@
             </div>
 
             <div>
-                <p id="item-title">{{ item.item_name }}</p>
+                
             </div>
         </div> 
     </section>

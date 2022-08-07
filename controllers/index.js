@@ -10,7 +10,7 @@ const confirmOrderRoutes = require('./confirmation-routes');
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/menu', menuRoutes);
-router.use('/order', orderRoutes);
+router.use('/orders', orderRoutes);
 router.use('/confirm', confirmOrderRoutes);
 
 module.exports = router;
