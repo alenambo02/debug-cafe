@@ -9,8 +9,9 @@ router.get('/', async(req, res) => {
         const itemData = await Item.findAll({
             // include: [{ model: Category }]
             include: [{ model: Category}]
+
         })
-        const items = itemData.map((item) => item.get({ plain: true })
+        const carts = itemData.map((item) => item.get({ plain: true })
     );
     console.log("hello")
         res.render('ordermenu', {items, loggedIn: req.session.loggedIn})
