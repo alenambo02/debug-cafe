@@ -13,32 +13,13 @@
 
 <body id="main-image">
     <div>
-        <a href="/">
-            <img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo">
-        </a>
-    </div> 
 
-<body id="full-image">
-
-    <div class="flex-column justify-space-around">
-
-        <div>  
-            <nav id="main-navbar" type="button" class="btn btn-outline-secondary">
-                <a href="/menu">Menu</a> |
-                {{#if loggedIn}}
-                    <a href="" id="logout">Logout</a>
-                {{else}}
-                    <a href="/login">Login</a>
-                {{/if}}
-            </nav>
-        </div>    
 
         <main>
-     
-        {{{ body }}}
+            {{{ body }}}
         </main>
    
-  </div>
+    </div>
 
  
   {{#if loggedIn}}
