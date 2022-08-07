@@ -1,12 +1,17 @@
-{{#if logged_in}}
-<div id="mySidebar" class="sidebar item">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  {{#each items as |item| }}
-  <a>{{item_name}} - ${{price}}</a>
-  {{/each}}
+ <button class="btn btn-primary" style="background-color: rgb(105, 34, 172); position:fixed; top: 20px; right: 50px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDetails" aria-controls="cartDetails">
+  ☰ Cart
+</button>
+    
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="static" style="background-color: rgb(105, 36, 169); color: white;" tabindex="-1" id="cartDetails" aria-labelledby="cartLabel">
+  <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartLabel">Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div style="list-style-type: none;">
+      {{#each items as |item| }}
+            <li "item-title item-price" > {{item.item_name}} - ${{item.price}} </li>
+            {{/each}}
+    </div>
+  </div>
 </div>
-
-<div id="main">
-  <button class="openbtn" onclick="openNav()">☰ Your Order</button>
-</div>
-{{/if}}

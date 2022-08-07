@@ -17,33 +17,22 @@ router.get('/', async(req, res) => {
     }
 })
 
-router.get('/menu/:category', async(req, res) => {
-    try {
-        const categoryData = await Category.findOne(req.params.category, {
-            include: [
-            { 
-                model: Item, 
-                attributes: [
-                    'id',
-                    'item_name',
-                    'item_description',
-                    'price',
-                    'stock',
-                  ], 
-                },
-            ],
-        });
-        const category = categoryData.get({ plain: true });
-        // const category = categoryData.map((category) => category.get({ plain: true })
-        // );
-
-        res.render('bycategory', {category, loggedIn: req.session.loggedIn});
+// router.get('/:category', async(req, res) => {
+//     try {
+//         const categoryData = await Category.findOne(req.params.category, {
+//             include: [{ model: Item }],
+//         });
+//         const category = categoryData.get({ plain: true });
+//         // const category = categoryData.map((category) => category.get({ plain: true })
+//         // );
+//         console.log(categoryData)
+//         res.render('bycategory', {category, loggedIn: req.session.loggedIn});
       
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
 
 
 
@@ -61,3 +50,31 @@ router.get('/login', (req, res) => {
 
 
 module.exports = router;
+
+
+
+// attributes: [
+//     'id',
+//     'item_name',
+//     'item_description',
+//     'price',
+//     'stock',
+//   ], 
+
+router.get('/:category', async(req, res) => {
+    try {
+        const categoryData = await Category.findByPk(req.params.id, {
+            include: [{ model: Item }],
+        });
+        const category = categoryData.get({ plain: true });
+        // const category = categoryData.map((category) => category.get({ plain: true })
+        // );
+        console.log("hello")
+        console.log(categoryData)
+        res.render('bycategory', {category, loggedIn: req.session.loggedIn});
+      
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});

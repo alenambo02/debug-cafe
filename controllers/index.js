@@ -5,7 +5,7 @@ const apiRoutes = require('./api');
 const menuRoutes = require('./menu-routes');
 const orderRoutes = require('./ordermenu-routes');
 const accountRoutes = require('./account-routes');
-const confirmOrderRoutes = require('./confirmation-routes');
+const confirmOrderRoutes = require('./confirm-routes');
 
 
 router.use('/', homeRoutes);
