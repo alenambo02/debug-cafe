@@ -9,9 +9,10 @@ var getSum = (items) => {
 var getTax = (items) => {
 	const sum = getSum(items)
 	var taxRate = .09
-	return sum*taxRate
+	var tax = (sum*taxRate)
+	return Number(tax.toFixed(2))
 }
-
+	
 var getTotal = (items) => {
 	const sum = getSum(items)
 	const tax = getTax(items)

@@ -26,6 +26,21 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
+router.get('/:category', async (req, res) =>{
+    try{
+        const categoryData = await Category.findAll( {
+			where: {
+                category_name: req.params.category
+            },
+            include: [{model: Item}]
+		})
+        res.status(200).json(categoryData)
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 // router.post('/', async (req, res) =>{
 //     try{
 //         const categoryData = await Category.create({

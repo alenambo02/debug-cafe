@@ -6,6 +6,7 @@ const menuRoutes = require('./menu-routes');
 const orderRoutes = require('./ordermenu-routes');
 const accountRoutes = require('./account-routes');
 const confirmOrderRoutes = require('./confirm-routes');
+const checkoutRoutes = require('./checkout-routes');
 
 
 router.use('/', homeRoutes);
@@ -14,6 +15,7 @@ router.use('/menu', menuRoutes);
 router.use('/orders', orderRoutes);
 router.use('/account', accountRoutes);
 router.use('/confirm', confirmOrderRoutes);
+router.use('/confirm', checkoutRoutes);
 
 module.exports = router;
 
