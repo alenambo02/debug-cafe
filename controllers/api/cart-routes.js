@@ -64,7 +64,6 @@ router.post('/', (req, res) => {
 	 */
     Cart.create(req.body)
       .then((cart) => {
-		console.log('cart', cart)
         if (req.body.itemIds.length) {
           const CartItemIdArr = req.body.itemIds.map((item_id) => {
             return {
@@ -72,7 +71,6 @@ router.post('/', (req, res) => {
               item_id,
             };
           });
-		  console.log(CartItemIdArr)
           return CartItem.bulkCreate(CartItemIdArr);
         }
         res.status(200).json(cart);

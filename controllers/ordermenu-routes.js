@@ -7,14 +7,15 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async(req, res) => {
     try {
         const itemData = await Item.findAll({
-            where: {
-                user_id: req.session.user_id
-            },
+                where: {
+                    user_id: req.session.user_id
+                },
             include: [{ model: Category }, { model: User } ]
         })
-        const items = itemData.map((item) => item.get({ plain: true })
+        const carts = itemData.map((item) => item.get({ plain: true })
     );
-        res.render('order', {items, loggedIn: req.session.loggedIn})
+        console.log(carts)
+        res.render('account', {carts, loggedIn: req.session.loggedIn})
     } catch (err) {
         console.log(err);
         res.status(500).json(err)

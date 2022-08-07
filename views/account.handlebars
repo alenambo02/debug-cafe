@@ -1,0 +1,25 @@
+<div id="container" class="row">
+        <h3 class="text-center text-white">My Account</h4>
+    <div class="w-50 mx-auto justify-content-center text-center">
+    <h4 class="text-center text-white">Current Order:</h4>
+        <ul class="list-group mb-4">
+            {{#if cart.id}}
+            <li class="list-group-item">Order #{{cart.id}}</li>
+            {{else}}
+            <li class="list-group-item">There are no current Orders</li>
+            {{/if}}
+            {{#each cart.items as |item|}}
+            <li class="list-group-item d-flex justify-content-between"><p>{{item.item_name}}</p><p>${{item.price}}</p></li>
+            {{/each}}
+        </ul>
+    <h4 class="text-center text-white">Previous Orders:</h4>
+        {{#each prevcarts}}
+        {{> cart-details}}
+        {{/each}}
+    </div>
+</div>
+
+
+
+
+{{!-- <script src="/js/profile.js"></script>     --}}
