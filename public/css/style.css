@@ -21,10 +21,6 @@ html {
     height: 100%
 }
 
-body {
-    background-color: aqua;
-}
-
 .sidebar {
     height: 100%;
     width: 0;
@@ -134,13 +130,13 @@ a {
     margin-left: 93px;
 }
 
-#container-home {
+/* #container-home {
   margin-top: 250px;
   margin-left: 750px;
 } 
 .inner {
   position: relative;
-}
+} */
 
 
 /* login form styling
@@ -171,8 +167,6 @@ form {
  
 
 }
-
-
 
 /* #full-image {
     background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
