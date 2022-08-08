@@ -1,31 +1,19 @@
+{{> header}}
 
 
-
-
-<div id="tea" class="col-3">
-        {{#each tea.items as |item|}}
-        <div>
+<div id="contorder" class="col-5 mx-auto justify-content-center d-grid gap-3 gap-3">
+        {{#each category.items as |item|}}
+        <div id="ordertea">
         {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
         <p id="item-title">{{ item_name }}</p>
         <p id="item-description">{{ item_description }}</p>
-        <p id="item-price">{{ price }}</p>
+        <p id="item-price"> $ {{ price }}</p>
+        <button class="addtocart"> Add to Cart </button>
         </div>
         {{/each}}
-         <button class="addtocart"> Add to Cart </button>
+         
 </div>
 
-
-<div id="tea" class="col-3">
-        {{#each tea.items as |item|}}
-        <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-description">{{ item_description }}</p>
-        <p id="item-price">{{ price }}</p>
-        </div>
-        {{/each}}
-         <button class="addtocart"> Add to Cart </button>
-    </div>
 
 
 

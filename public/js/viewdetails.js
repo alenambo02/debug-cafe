@@ -1,31 +1,27 @@
 
-const viewTea = document.querySelector('#viewteabtn')
+const viewTea = document.querySelector('.viewteabtn')
 
 function viewTeaDetails(){
-       location.replace( '/ordermenu/tea')     
+       location.replace( '/menu/tea')  
 }
-
 
 viewTea.addEventListener("click", viewTeaDetails)
 
-
 // ===================================================================
-const viewFood = document.querySelector('#viewfoodbtn')
 
-function viewFoodDetails(){
-       location.replace( '/ordermenu/food')     
+const viewCold = document.querySelector('.viewcoldbtn')
+
+function viewColdDetails(){
+    location.replace( '/menu/cold')     
 }
 
-
-
-viewTea.addEventListener("click", viewFoodDetails)
-
+viewTea.addEventListener("click", viewColdDetails)
 
 // ===================================================================
-const viewCoffee = document.querySelector('#viewcoffeebtn')
+const viewCoffee = document.querySelector('.viewcoffeebtn')
 
 function viewCoffeeDetails(){
-    location.replace( '/ordermenu/coffee')     
+    location.replace( '/menu/coffee')     
 }
 
 viewTea.addEventListener("click", viewCoffeeDetails)
@@ -33,10 +29,14 @@ viewTea.addEventListener("click", viewCoffeeDetails)
 
 // ===================================================================
 
-const viewCold = document.querySelector('#viewcoldbtn')
 
-function viewColdDetails(){
-    location.replace( '/ordermenu/cold')     
+
+const viewFood = document.querySelector('.viewfoodbtn')
+
+function viewFoodDetails(){
+       location.replace( '/menu/food')     
 }
 
-viewTea.addEventListener("click", viewColdDetails)
+
+
+viewTea.addEventListener("click", viewFoodDetails)
