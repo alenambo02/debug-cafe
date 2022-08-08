@@ -1,4 +1,6 @@
 const { User, Cart, Category, Item, CartItem } = require('../models');
+const router = require('express').Router();
+
 
 var getSidebar =  async(req, res) => {
     console.log('in sidebar')
@@ -17,6 +19,8 @@ var getSidebar =  async(req, res) => {
                 attributes: ['item_name','price']
             }]
         });
+        console.log('sidebarData')
+        console.log(sidebarData)
         if(sidebarData !== null){
             var sidebar = sidebarData.get({ plain: true })
         }else {
@@ -26,13 +30,15 @@ var getSidebar =  async(req, res) => {
                 "itemIds": [],
             }
         }
-        // console.log("sidebar")
-        res.render('sidebar')
+        console.log('sidebar')
+        console.log(sidebar)
+        return sidebarData
     }catch(err){
         console.log(err);
-        res.status(500).json(err);
+        // res.status(500).json(err);
     }
-}
 
-var sidebar = document.querySelector('#sidebar')
-sidebar.addEventListener('click', getSidebar)
+}
+module.exports = getSidebar, router
+// var sidebar = document.querySelector('#sidebar')
+// sidebar.addEventListener('click', getSidebar)

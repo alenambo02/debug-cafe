@@ -14,20 +14,18 @@
 {{!-- <body id="full-image"> --}}
 <body id="main-image">
     {{#if loggedIn}}
-    
     {{> sidebar}}
      {{/if}}
-    <div>
-        <main>
-        {{{ body }}}
-        </main>
-    </div>
+    
+    <main>
+    {{{ body }}}
+    </main>
 
+  <script src="/utils/helpers.js"></script>
   {{#if loggedIn}}
     <script src="/js/logout.js"></script>
   {{!-- <script src="/js/addCart.js"></script> --}}
   {{/if}}   
-  <script src="/utils/helpers.js"></script>
   
   
 </body>
