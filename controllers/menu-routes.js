@@ -40,33 +40,28 @@ router.get('/:category', async(req, res) => {
     }
 });
 
-router.get('/', async(req, res) => {
-    try {
-        const categoryData = await Category.findOne( {
-            where: {
-                category_name: "tea",
-            },
-            include: [{ model: Item }],
-        });
+// router.get('/', async(req, res) => {
+//     try {
+//         const categoryData = await Category.findOne( {
+//             where: {
+//                 category_name: "tea",
+//             },
+//             include: [{ model: Item }],
+//         });
     
       
         
-        // const category = categoryData.map((category) => category.get({ plain: true })
-    //   console.log(tea)
-    //   console.log(coffee)
-    //   console.log(cold)
-    //   console.log(food)
-
-      
+//         // const category = categoryData.map((category) => category.get({ plain: true })
+ 
         
-        res.render('menu', {tea, food, coffee, cold, loggedIn: req.session.loggedIn});
-        // res.status(200).json(teaData)
+//         res.render('menu', {tea, food, coffee, cold, loggedIn: req.session.loggedIn});
+//         // res.status(200).json(teaData)
       
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
 
 
 // router.get('/:category', async(req, res) => {
@@ -123,34 +118,36 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    const coffeeData = await Category.findOne( {
-        where: {
-            category_name: "coffee",
-        },
-        include: [{ model: Item }],
-    });
+    // const coffeeData = await Category.findOne( {
+    //     where: {
+    //         category_name: "coffee",
+    //     },
+    //     include: [{ model: Item }],
+    // });
   
-    const coffee = coffeeData.get({ plain: true });
+    // const coffee = coffeeData.get({ plain: true });
 
-    const foodData = await Category.findOne( {
-        where: {
-            category_name: "food",
-        },
-        include: [{ model: Item }],
-    });
+    // const foodData = await Category.findOne( {
+    //     where: {
+    //         category_name: "food",
+    //     },
+    //     include: [{ model: Item }],
+    // });
   
-    const food = foodData.get({ plain: true });
+    // const food = foodData.get({ plain: true });
    
-    const coldData = await Category.findOne( {
-        where: {
-            category_name: "cold",
-        },
-        include: [{ model: Item }],
-    });
+    // const coldData = await Category.findOne( {
+    //     where: {
+    //         category_name: "cold",
+    //     },
+    //     include: [{ model: Item }],
+    // });
   
-    const cold = coldData.get({ plain: true });
-    res.render('menu', {tea, food, coffee, cold, loggedIn: req.session.loggedIn});
-        // res.status(200).json(teaData)
+    // const cold = coldData.get({ plain: true });
+    // res.render('menu', {tea, loggedIn: req.session.loggedIn});
+    console.log(tea)
+        res.status(200).json(tea)
+       
       
     } catch (err) {
         console.log(err);

@@ -1,8 +1,8 @@
     
 {{> header}}
 
-<h3>HELLLO</h3>
-<div>
+
+{{!-- <div>
     {{#each coffee.items as |items|}}
     {{> category}}
     {{/each}}
@@ -12,19 +12,23 @@
     {{#each cold.items as |item|}}
     {{> category}}
     {{/each}}
-</div>
+</div> --}}
 
-<div>
+
     {{#each tea.items as |item|}}
+    <div>
+        <h3>HELLLO</h3>
     {{> category}}
-    {{/each}}
-</div>
 
-<div>
+    </div>
+    {{/each}}
+
+
+{{!-- <div>
     {{#each food.items as |item|}}
     {{> category}}
     {{/each}}
-</div>
+</div> --}}
 
 
 
@@ -35,8 +39,8 @@
         <div id="menu-box" class="col-5">
             <div>
                 <button id="item-title">{{ item.item_name }}</button>
-                {{!-- <h3 id="item-title">{{ item.item_name }}</h3> --}}
-            {{!-- </div>
+              <h3 id="item-title">{{ item.item_name }}</h3>
+           </div>
             <div>   
                 <p id="item-description">{{ item.item_description }}</p>
                 <p id="item-price"> $ {{ item.price }}</p>
@@ -46,7 +50,6 @@
                 
             </div>
         </div> 
-    </section> --}}
-
-{{!-- {{/each}} --}}
+    </section> 
+{{/each}} --}}
 
