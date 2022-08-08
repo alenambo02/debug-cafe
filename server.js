@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 // const sidebar = require('./utils/sidebar');
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -30,7 +30,7 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(fetch)
+// app.use(fetch)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));

@@ -2,14 +2,10 @@ const router = require('express').Router();
 
 const { User, Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');
-const genSidebar = require('../public/js/sidebar');
+// const genSidebar = require('../public/js/sidebar');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
-        // console.log('before sidebar')
-        // var sidebar = await genSidebar()
-        // console.log('sidebar')
-        // console.log(sidebar)
         const activecartData = await Cart.findOne({
             where: {
                 user_id: req.session.user_id,
@@ -24,7 +20,6 @@ router.get('/', async (req, res) => {
                 attributes: ['item_name','price']
             }]
         });
-        // console.log(activecartData)
         if(activecartData !== null){
            var cart = activecartData.get({ plain: true })
         }else {
@@ -34,7 +29,7 @@ router.get('/', async (req, res) => {
                 "itemIds": [],
             }
         }
-        // console.log(cart)
+        var sidebar = cart
         const cartData = await Cart.findAll({
             where: {
                 user_id: req.session.user_id,
