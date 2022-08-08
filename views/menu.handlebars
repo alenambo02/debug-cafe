@@ -3,29 +3,20 @@
 
 <div id="menuboxes" class="row">
     <div id="tea" class="col-3">
-        <div class="container">
-        {{!-- <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/324/324771/close-up-of-a-cup-of-tea.jpg?w=1575" alt="Avatar" class="image"> --}}
-            <div class="">
-            <p class="menu-title">Teas</p>
-                {{#each tea.items as |item|}}
-                <div class="text">
-                {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-                 <p id="menu-sec">{{ item_name }} ${{ price }}</p>
-                {{!-- <p id="item-price-menu">{{ price }}</p> --}}
-                </div>
-                {{/each}}
-                <button id="btn"><a href="/menu/tea">View</a>  </button>
-            </div>
+        <p class="menu-title">Teas</p>
+        {{#each tea.items as |item|}}
+        <div>
+            <p id="menu-sec">{{ item_name }} ${{ price }}</p>
         </div>
+        {{/each}}
+        <button id="btn"><a href="/menu/tea">View</a>  </button>
     </div>  
 
     <div id="cold" class="col-3">
         <p class="menu-title">Iced</p>
         {{#each cold.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
          <p id="menu-sec">{{ item_name }} ${{ price }}</p>
-        {{!-- <p id="item-price-menu">{{ price }}</p> --}}
         </div>
         {{/each}}
          <button id="btn"> <a href="/menu/cold">View</a> </button>
@@ -35,9 +26,7 @@
         <p class="menu-title">Coffee</p>
         {{#each coffee.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
         <p id="menu-sec">{{ item_name }} ${{ price }}</p>
-        {{!-- <p id="item-price-menu">{{ price }}</p> --}}
         </div>
         {{/each}}
          <button id="btn"> <a href="/menu/coffee">View</a> </button>
@@ -47,9 +36,7 @@
         <p class="menu-title">Food</p>
         {{#each food.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
         <p id="menu-sec">{{ item_name }} ${{ price }}</p>
-        {{!-- <p id="item-price-menu">{{ price }}</p> --}}
         </div>
         {{/each}}
          <button id="btn"> <a href="/menu/food">View</a> </button>
