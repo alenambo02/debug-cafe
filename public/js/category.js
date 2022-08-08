@@ -1,9 +1,9 @@
-const addToCart = async (event) => {
+const viewCategory = async (event) => {
     event.preventDefault();
-
-    const item_name = document.querySelector('#item_name').value.trim();
+  
+    const item_name = document.querySelector('#item_title').value.trim();
     const item_description = document.querySelector('#item_description').value.trim();
-    const price = document.querySelector('#price').value.trim();
+    const price = document.querySelector('#item_price').value.trim();
   
     if (item_name && price) {
       const response = await fetch(`/api/item`, {
