@@ -165,71 +165,52 @@ form {
  ========================================================================== */ 
 #tea {
   background-color: rgb(214, 189, 154);
-  margin: auto;
   border: 5px solid rgb(4, 4, 4);
-  padding: 10px;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 20px;
+ 
 }
 
 #coffee {
   background-color: rgb(214, 189, 154);
-  margin: auto;
   border: 5px solid rgb(4, 4, 4);
-  padding: 10px;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 20px; 
 }
 
 #food {
   background-color: rgb(214, 189, 154);
-  margin: auto;
   border: 5px solid rgb(4, 4, 4);
-  padding: 10px;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 20px; 
 }
 
 #cold {
     background-color: rgb(214, 189, 154);
-    margin: auto;
     border: 5px solid rgb(4, 4, 4);
-    padding: 10px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin: 20px; 
 }
 
 #item-title {
   font-weight: bold;
 }
-#item-price {
 
-}
 #item-description {
     color: rgb(84, 83, 83);
 }
 
 
-/* #full-image {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.030), rgba(255, 255, 255, 0.030)), url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-} */
-
- 
-/* #full-image {
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} 
+/* order styling ========================================================= */
+#ordertea {
+  background-color: aliceblue;
+  padding: 30px;
+  width: 700px;
   
+}
 
-#full-image::before {    
-  content: "";
-  background-image: url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.95;
-} */
+.addtocart {
+  background-color: rgb(58, 36, 8);
+  color: tan;
+  border-radius: 50px;
+}

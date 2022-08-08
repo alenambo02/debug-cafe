@@ -28,10 +28,10 @@ router.get('/:category', async(req, res) => {
        
         const category = categoryData.get({ plain: true });
 
-        // const category = categoryData.map((category) => category.get({ plain: true })
+   
       
         // console.log(categoryData)
-        res.render('menu', {category, loggedIn: req.session.loggedIn});
+        res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
         // res.status(200).json(categoryData)
       
     } catch (err) {
@@ -40,50 +40,8 @@ router.get('/:category', async(req, res) => {
     }
 });
 
-// router.get('/', async(req, res) => {
-//     try {
-//         const categoryData = await Category.findOne( {
-//             where: {
-//                 category_name: "tea",
-//             },
-//             include: [{ model: Item }],
-//         });
-    
-      
-        
-//         // const category = categoryData.map((category) => category.get({ plain: true })
- 
-        
-//         res.render('menu', {tea, food, coffee, cold, loggedIn: req.session.loggedIn});
-//         // res.status(200).json(teaData)
-      
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
 
 
-// router.get('/:category', async(req, res) => {
-//     try {
-//         const categoryData = await Category.findOne( {
-//             where: {
-//                 category_name: req.params.category
-//             },
-//             include: [{ model: Item }],
-//         });
-//         const category = categoryData.get({ plain: true });
-//         // const category = categoryData.map((category) => category.get({ plain: true })
-      
-//         console.log(categoryData)
-//         res.render('food', {category, loggedIn: req.session.loggedIn});
-//         // res.status(200).json(categoryData)
-      
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
 
 
 
@@ -98,14 +56,6 @@ router.get('/login', (req, res) => {
   
     res.render('login',{loggedIn: req.session.loggedIn});
   });
-
-
-
-
-
-
-module.exports = router;
-
 
 
 router.get('/', async(req, res) => {
@@ -146,8 +96,7 @@ try {
     });
 
     const cold = coldData.get({ plain: true });
-  
-    // const cold = coldData.get({ plain: true });
+
     console.log(tea)
     res.render('menu', {tea, coffee, food, cold, loggedIn: req.session.loggedIn});
     
@@ -160,3 +109,5 @@ try {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
