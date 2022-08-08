@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Item, Cart, Category } = require('../models')
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');   
 
 router.get('/', async(req, res) => {
     try {
@@ -27,8 +27,13 @@ router.get('/', async(req, res) => {
                 "itemIds": [],
             }
         }
-        console.log('here')
-        res.render('checkout', {cart, loggedIn:req.session.loggedIn})
+        if(process.env.NODE_ENV !== 'production'){
+            require('dotenv').config()
+        }
+        const stripePublic = process.env.STRIPE_PUBLIC_KEY
+        const stripeSecret = process.env.STRIPE_SECRET_KEY
+        console.log(stripePublic,stripeSecret)   
+        res.render('checkout', {cart,stripePublic, loggedIn:req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
     }

@@ -14,32 +14,47 @@ router.get('/', async (req, res) =>{
     }
 })
 
-router.get('/:id', async (req, res) =>{
-    try{
-        const categoryData = await Category.findByPk(req.params.id, {
-			include: [{model: Item}]
-		})
-        res.status(200).json(categoryData)
-    }catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
+// router.get('/:id', async (req, res) =>{
+//     try{
+//         const categoryData = await Category.findByPk(req.params.id, {
+// 			include: [{model: Item}]
+// 		})
+//         res.status(200).json(categoryData)
+//     }catch(err){
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// })
+// router.get('/', async (req, res) =>{
+//     try{
+//         const teaData = await Category.findOne({
+// 			where:{
+//                 category_name: "tea"
+//             },
+//             include: [{model: Item}]
+// 		})
+//         const tea= teaData.get({ plain: true })
+//         res.status(200).json(tea)
+//     }catch(err){
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// })
 
-router.get('/:category', async (req, res) =>{
-    try{
-        const categoryData = await Category.findAll( {
-			where: {
-                category_name: req.params.category
-            },
-            include: [{model: Item}]
-		})
-        res.status(200).json(categoryData)
-    }catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
+// router.get('/:category', async (req, res) =>{
+//     try{
+//         const categoryData = await Category.findOne( {
+// 			where: {
+//                 category_name: req.params.category
+//             },
+//             include: [{model: Item}]
+// 		})
+//         res.status(200).json(categoryData)
+//     }catch(err){
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// })
 
 // router.post('/', async (req, res) =>{
 //     try{

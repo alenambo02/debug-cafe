@@ -18,4 +18,11 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
-module.exports = sequelize;
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
+const stripePublic = process.env.STRIPE_PUBLIC_KEY
+const stripeSecret = process.env.STRIPE_SECRET_KEY
+console.log(stripePublic,stripeSecret)   
+
+module.exports = sequelize, stripePublic;

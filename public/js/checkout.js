@@ -1,15 +1,25 @@
-const click = () => {
-    console.log('click')
+
+
+var stripeHandler = StripeCheckout.configure({
+    key: stripePublic,
+    local: "auto",
+    token: function(token){
+        console.log('token')
+    }
+})
+
+function purchaseClicked(){
+    console.log("purchase clicked")
+    // var total = document.querySelector('#cart-total')
+    var totalEl = document.getElementById('cart-total')
+    var total = parseFloat((totalEl.textContent).replace('$', '')) * 100
+    console.log(total)
+    // console.log(num)
+    stripeHandler.open({
+        amount: total
+    })
 }
 
-// var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-var paymentElement = elements.create('payment');
-var elements = stripe.elements({
-    clientSecret: 'CLIENT_SECRET',
-  });
+var checkout = document.querySelector('#checkout-button')
 
-
-var pay = document.querySelector('#payment')
-
-pay.append(elements)
-
+checkout.addEventListener("click", purchaseClicked)

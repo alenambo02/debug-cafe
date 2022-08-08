@@ -1,5 +1,8 @@
 var getSum = (items) => {
 	var sum = 0
+	if(items.length = 0){
+		return sum
+	}
 	for(let i = 0; i < items.length; i++){
 		sum += Number(items[i].price)
 	}
