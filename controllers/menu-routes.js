@@ -121,8 +121,10 @@ try {
     const coffeeData = await Category.findOne( {
         where: {
             category_name: "coffee",
+            // exclude: "cold",
         },
         include: [{ model: Item }],
+        
     });
   
     const coffee = coffeeData.get({ plain: true });
