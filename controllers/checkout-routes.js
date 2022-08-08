@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');   
 
-router.get('/', async(req, res) => {
+router.get('/',withAuth, async(req, res) => {
     try {
         const activecartData = await Cart.findOne({
             where: {
@@ -27,12 +27,13 @@ router.get('/', async(req, res) => {
                 "itemIds": [],
             }
         }
+        var sidebar = cart
         if(process.env.NODE_ENV !== 'production'){
             require('dotenv').config()
         }
         const stripePublic = process.env.STRIPE_PUBLIC_KEY
         // console.log(stripePublic)   
-        res.render('checkout', {cart,stripePublic, loggedIn:req.session.loggedIn})
+        res.render('checkout', {cart,stripePublic,sidebar, loggedIn:req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
     }

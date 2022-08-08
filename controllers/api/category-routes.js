@@ -41,20 +41,20 @@ router.get('/', async (req, res) =>{
 //     }
 // })
 
-// router.get('/:category', async (req, res) =>{
-//     try{
-//         const categoryData = await Category.findOne( {
-// 			where: {
-//                 category_name: req.params.category
-//             },
-//             include: [{model: Item}]
-// 		})
-//         res.status(200).json(categoryData)
-//     }catch(err){
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// })
+router.get('/:category', async (req, res) =>{
+    try{
+        const categoryData = await Category.findOne( {
+			where: {
+                category_name: req.params.category
+            },
+            include: [{model: Item, include:{model:Category, include: {category:"Coffee"}}}]
+		})
+        res.status(200).json(categoryData)
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
 
 // router.post('/', async (req, res) =>{
 //     try{

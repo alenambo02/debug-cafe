@@ -1,11 +1,34 @@
 const router = require('express').Router();
-const fetchsidebar = require('../public/js/sidebar')
-// const { Item, Category } = require('../models')
+const { User, Item, Category, Cart } = require('../models')
 
 
 router.get('/', async(req, res) => {
     try {
-        res.render('homepage', {loggedIn: req.session.loggedIn})
+          const sidebarCartData = await Cart.findOne({
+            where: {
+                user_id: req.session.user_id,
+                completed: false
+            },
+            include: [{
+                model: User,
+                attributes: ['email']
+            },
+            {
+                model: Item,
+                attributes: ['item_name','price']
+            }]
+        });
+        // console.log(activecartData)
+        if(sidebarCartData !== null){
+            var sidebar = sidebarCartData.get({ plain: true })
+        }else {
+            sidebar = {
+                "user_id": req.session.user_id,
+                "completed": false,
+                "itemIds": [],
+            }
+        }
+        res.render('homepage', {sidebar, loggedIn: req.session.loggedIn})
     } 
     catch (err) {
         console.log(err);
