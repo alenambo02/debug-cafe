@@ -36,18 +36,18 @@ var stripeHandler = StripeCheckout.configure({
         console.log(token)
         if(token){
             console.log('hi')
-            // redirect()
-            stripe.charges.create({
-                amount: total,
-                source: token.id,
-                currency: 'usd'
-            }).then(function(){
-                console.log('Charge Successful')
-                res.json({message:'Charge Successful'})
-            }).catch(function(){
-                console.log('Charge Fail')
-                res.status(500).end()
-            })
+            redirect()
+            // stripe.charges.create({
+            //     amount: total,
+            //     source: token.id,
+            //     currency: 'usd'
+            // }).then(function(){
+            //     console.log('Charge Successful')
+            //     res.json({message:'Charge Successful'})
+            // }).catch(function(){
+            //     console.log('Charge Fail')
+            //     res.status(500).end()
+            // })
         }
     }
 })
