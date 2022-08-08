@@ -1,23 +1,8 @@
 const router = require('express').Router();
-
 const { Item, Category } = require('../models')
+const withAuth = require('../utils/auth');
 
-//allow them to view the menu
-// router.get('/', async(req, res) => {
-//     try {
-//         const itemData = await Item.findAll({
-//             include: [{ model: Category }]
-//         })
-//         const items = itemData.map((item) => item.get({ plain: true })
-//     );
-//         res.render('menu', {items, loggedIn: req.session.loggedIn})
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err)
-//     }
-// })
-
-router.get('/:category', async(req, res) => {
+router.get('/:category', withAuth, async(req, res) => {
     try {
         const categoryData = await Category.findOne( {
             where: {
@@ -41,12 +26,6 @@ router.get('/:category', async(req, res) => {
 });
 
 
-
-
-
-
-
-
 //if trying to order they will be redirected to login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -68,13 +47,14 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    const coffeeData = await Category.findOne( {
+    const coffeeData = await Item.findAll({
+        include: [{ 
+            model: Category
+        }],  
         where: {
-            category_name: "coffee",
-            // exclude: "cold",
+            category_name: ["hot"],
         },
-        include: [{ model: Item }],
-        
+       
     });
   
     const coffee = coffeeData.get({ plain: true });
