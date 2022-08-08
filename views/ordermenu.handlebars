@@ -1,34 +1,33 @@
-{{!-- href menu  --}}
-<header>
-    <div id="menu-image">
-        <img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo">
-    </div> 
-    <nav id="homepage-navbar" type="button" class="btn btn-outline-secondary">
-            
-            {{#if loggedIn}}
-            <a href="/orders">Order</a> 
-            <a href="" id="logout">Logout</a>
-            {{else}}
-            <a href="/login">Login</a>
-            {{/if}}
-    </nav>
-    
-</header>
 
-{{#each items as |item| }}
-    <section id="container" class="row">
-        <div id="menu-box" class="col-6">
-            <div>
-                <h3 id="item-title">{{ item.item_name }}</h3>
-            </div>
-            <div>   
-                <p id="item-description">{{ item.item_description }}</p>
-                <p id="item-price"> {{ item.price }}</p>
-            </div>
-                <p id="item-stock"> {{ item.stock }}</p>
-            <div>
-                
-            </div>
-        </div> 
-    </section>
-{{/each}}
+
+
+
+<div id="tea" class="col-3">
+        {{#each tea.items as |item|}}
+        <div>
+        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
+        <p id="item-title">{{ item_name }}</p>
+        <p id="item-description">{{ item_description }}</p>
+        <p id="item-price">{{ price }}</p>
+        </div>
+        {{/each}}
+         <button class="addtocart"> Add to Cart </button>
+</div>
+
+
+<div id="tea" class="col-3">
+        {{#each tea.items as |item|}}
+        <div>
+        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
+        <p id="item-title">{{ item_name }}</p>
+        <p id="item-description">{{ item_description }}</p>
+        <p id="item-price">{{ price }}</p>
+        </div>
+        {{/each}}
+         <button class="addtocart"> Add to Cart </button>
+    </div>
+
+
+
+
+<script src="./js/viewdetails.js"></script>
