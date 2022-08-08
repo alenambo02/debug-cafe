@@ -1,5 +1,8 @@
 var getSum = (items) => {
 	var sum = 0
+	if(items.length = 0){
+		return sum
+	}
 	for(let i = 0; i < items.length; i++){
 		sum += Number(items[i].price)
 	}
@@ -9,9 +12,10 @@ var getSum = (items) => {
 var getTax = (items) => {
 	const sum = getSum(items)
 	var taxRate = .09
-	return sum*taxRate
+	var tax = (sum*taxRate)
+	return Number(tax.toFixed(2))
 }
-
+	
 var getTotal = (items) => {
 	const sum = getSum(items)
 	const tax = getTax(items)

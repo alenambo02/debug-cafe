@@ -5,7 +5,7 @@
     <h4 class="text-center text-white">Current Order:</h4>
         <ul class="list-group mb-4">
             {{#if cart.id}}
-            <li class="list-group-item">Order #{{cart.id}}</li>
+            <li class="list-group-item"><a href="/confirm/{{cart.id}}">Order #{{cart.id}}</a> </li>
             {{else}}
             <li class="list-group-item">There are no current Orders</li>
             {{/if}}
@@ -20,19 +20,19 @@
             {{/each}}
             <li class="list-group-item">
                 <div class="row align-items-start">
-                    <p class="col-11 text-end">Subtotal:</p>
+                    <p class="col-10 text-end">Subtotal:</p>
                     <p class="col text-end">${{getSum cart.items}}</p>
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="row align-items-start">
-                    <p class="col-11 text-end">Tax:</p> 
+                    <p class="col-10 text-end">Tax:</p> 
                     <p class="col text-end">${{getTax cart.items}}</p>
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="row align-items-start">
-                    <p class="col-11 text-end">Total:</p> 
+                    <p class="col-10 text-end">Total:</p> 
                     <p class="col text-end">${{getTotal cart.items}}</p>
                 </div>
             </li>

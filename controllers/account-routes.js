@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
                 "itemIds": [],
             }
         }
-        console.log(cart)
+        // console.log(cart)
         const cartData = await Cart.findAll({
             where: {
                 user_id: req.session.user_id,

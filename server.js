@@ -37,3 +37,11 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
+const stripePublic = process.env.STRIPE_PUBLIC_KEY
+const stripeSecret = process.env.STRIPE_SECRET_KEY
+console.log(stripePublic,stripeSecret)
