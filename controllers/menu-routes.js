@@ -1,10 +1,8 @@
 const router = require('express').Router();
-
 const { Item, Category } = require('../models')
+const withAuth = require('../utils/auth');
 
-
-
-router.get('/:category', async(req, res) => {
+router.get('/:category', withAuth, async(req, res) => {
     try {
         const categoryData = await Category.findOne( {
             where: {
@@ -49,16 +47,14 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    const coffeeData = await Category.findOne({
-        attributes: {exclude: ["cold"]},
+    const coffeeData = await Item.findAll({
+        include: [{ 
+            model: Category
+        }],  
         where: {
-            category_name: "hot",
+            category_name: ["hot"],
         },
        
-        include: [{ 
-            model: Item 
-        }],  
-    
     });
   
     const coffee = coffeeData.get({ plain: true });
