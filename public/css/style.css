@@ -166,8 +166,10 @@ form {
 #tea {
   background-color: rgb(214, 189, 154);
   border: 5px solid rgb(4, 4, 4);
-  text-align: center;
+  text-align:justify;
   margin: 20px;
+  height: min-content;
+  
  
 }
 
@@ -176,6 +178,7 @@ form {
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
   margin: 20px; 
+ 
 }
 
 #food {
@@ -190,6 +193,8 @@ form {
     border: 5px solid rgb(4, 4, 4);
     text-align: center;
     margin: 20px; 
+    height: min-content;
+   
 }
 
 #item-title {
@@ -213,4 +218,28 @@ form {
   background-color: rgb(58, 36, 8);
   color: tan;
   border-radius: 50px;
+}
+
+.overlay {
+  background-size: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #d1dadd;
+}
+
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.menu-title {
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: double;
+}
+
+#btn {
+    width: 200px;
+    background-color: rgb(122, 99, 73);
+   
 }
