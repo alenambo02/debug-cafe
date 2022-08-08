@@ -1,19 +1,43 @@
- <button class="btn btn-primary" style="background-color: rgb(105, 34, 172); position:fixed; top: 20px; right: 50px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDetails" aria-controls="cartDetails">
+ <button class="btn btn-primary" style="background-color: rgb(105, 34, 172); position:fixed; top: 20px; right: 50px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDetails" aria-controls="cartDetails" id="sidebar">
   ☰ Cart
 </button>
     
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="static" style="background-color: rgb(105, 36, 169); color: white;" tabindex="-1" id="cartDetails" aria-labelledby="cartLabel">
-  <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="cartLabel">Your Order</h5>
+  	<div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartLabel">Your Order:</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div style="list-style-type: none;">
-      {{!-- {{#each items as |item| }} --}}
-      {{#each carts as |cart| }}
-            {{!-- <li> {{item.item_name}} - ${{item.price}} </li> --}}
-            <li> {{cart}} </li>
-            {{/each}}
-    </div>
-  </div>
+  	</div>
+  	<div class="offcanvas-body">
+		<div style="list-style-type: none;">
+			<ul class="list-group mb-4">
+				{{#each sidebar.items as |item| }}
+				<li class="list-group-item">
+					<div class="row align-items-start">
+						<p class="col text-start">{{item_name}}</p>
+						<p class="col text-end">${{price}}</p>
+					</div>
+				</li>
+				{{/each}}
+				<li class="list-group-item">
+					<div class="row align-items-start">
+						<p class="col text-end">Subtotal:</p>
+						<p class="col text-end">${{getSum sidebar.items}}</p>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row align-items-start">
+						<p class="col text-end">Tax:</p> 
+						<p class="col text-end">${{getTax sidebar.items}}</p>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row align-items-start">
+						<p class="col text-end">Total:</p> 
+						<p class="col text-end">${{getTotal sidebar.items}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
+<script src="/utils/sidebar.js"></script>
