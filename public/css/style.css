@@ -1,16 +1,3 @@
-/* 
-#full-image::before {    
-    content: "";
-    background-image: url('https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg');
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.95;
-} */
-
 #full-image {
     background-image: url("https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg");
     background-repeat: no-repeat;
@@ -21,68 +8,14 @@ html {
     height: 100%
 }
 
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(41, 0, 58);
-    overflow-x: hidden;
-    transition: 0.75s;
-    padding-top: 60px;
-  }
+
   
-  .sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: rgb(88, 0, 88);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border-color: slateblue;
-  }
-  
-  .openbtn:hover {
-    background-color: rgb(125, 63, 125);
-  }
-  
-  #main {
+#main {
     transition: margin-left .5s;
     padding: 16px;
-  }
+}
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
-  }
 
-
-/* ale styling
-   ========================================================================== */  
 
 /* main handlebar styling
    ========================================================================== */ 
@@ -167,7 +100,9 @@ form {
   background-color: rgb(214, 189, 154);
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
+  height: min-content;
   margin: 20px;
+  width: 350px;
  
 }
 
@@ -176,6 +111,7 @@ form {
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
   margin: 20px; 
+  width: 350px;
 }
 
 #food {
@@ -183,6 +119,7 @@ form {
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
   margin: 20px; 
+  width: 350px;
 }
 
 #cold {
@@ -190,16 +127,32 @@ form {
     border: 5px solid rgb(4, 4, 4);
     text-align: center;
     margin: 20px; 
+    height: min-content;
+    width: 350px;
 }
 
-#item-title {
-  font-weight: bold;
+#menuboxes {
+    width: 100vmax;
+    height: 100px;
+    margin-left: -8px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-#item-description {
-    color: rgb(84, 83, 83);
+.menu-title {
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: double;
 }
 
+#btn {
+    width: 300px;
+    background-color: rgb(122, 99, 73);
+   
+    align-items: center;
+   
+}
 
 /* order styling ========================================================= */
 #ordertea {
@@ -213,4 +166,12 @@ form {
   background-color: rgb(58, 36, 8);
   color: tan;
   border-radius: 50px;
+}
+
+#item-title {
+  font-weight: bold;
+}
+
+#item-description {
+    color: rgb(84, 83, 83);
 }

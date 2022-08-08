@@ -3,47 +3,46 @@
 
 <div id="menuboxes" class="row">
     <div id="tea" class="col-3">
+        <p class="menu-title">Teas</p>
         {{#each tea.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-price">{{ price }}</p>
+            <p id="menu-sec">{{ item_name }} ${{ price }}</p>
         </div>
         {{/each}}
-         <button id="viewteabtn"><a href="/menu/tea">View Details</a>  </button>
-    </div>
+        <button id="btn"><a href="/menu/tea">View</a>  </button>
+    </div>  
 
-    <div id="food" class="col-3">
+
+    <div id="cold" class="col-3">
+        <p class="menu-title">Iced</p>
         {{#each cold.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-price">{{ price }}</p>
+         <p id="menu-sec">{{ item_name }} ${{ price }}</p>
         </div>
         {{/each}}
-         <button id="viewcoldbtn"> <a href="/menu/cold">View Details</a> </button>
+         <button id="btn"> <a href="/menu/cold">View</a> </button>
     </div>
 
     <div id="coffee" class="col-3">
+        <p class="menu-title">Coffee</p>
         {{#each coffee.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-price">{{ price }}</p>
+        <p id="menu-sec">{{ item_name }} ${{ price }}</p>
         </div>
         {{/each}}
-         <button id="viewcoffeebtn"> <a href="/menu/coffee">View Details</a> </button>
+         <button id="btn"> <a href="/menu/coffee">View</a> </button>
+
     </div>
 
-     <div id="food" class="col-3">
+     <div id="cold" class="col-3">
+        <p class="menu-title">Food</p>
         {{#each food.items as |item|}}
         <div>
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-price">{{ price }}</p>
+        <p id="menu-sec">{{ item_name }} ${{ price }}</p>
         </div>
         {{/each}}
-         <button id="viewfoodbtn"> <a href="/menu/food">View Details</a> </button>
+         <button id="btn"> <a href="/menu/food">View</a> </button>
+
     </div>
 </div>
 

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 
 const { User, Cart, Item, Category } = require('../models');
 const withAuth = require('../utils/auth');
@@ -17,6 +18,34 @@ const withAuth = require('../utils/auth');
 //         res.status(500).json(err)
 //     }
 // })
+=======
+const { Item, Category } = require('../models')
+const withAuth = require('../utils/auth');
+
+router.get('/:category', withAuth, async(req, res) => {
+    try {
+        const categoryData = await Category.findOne( {
+            where: {
+                category_name: req.params.category
+            },
+            include: [{ model: Item }],
+        });
+       
+        const category = categoryData.get({ plain: true });
+
+   
+      
+        // console.log(categoryData)
+        res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
+        // res.status(200).json(categoryData)
+      
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+>>>>>>> bd955fbfe0ff8c478f45d35f4db7eb4c9d73751f
 
 //if trying to order they will be redirected to login
 // router.get('/login', (req, res) => {
@@ -39,13 +68,14 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    const coffeeData = await Category.findOne( {
+    const coffeeData = await Item.findAll({
+        include: [{ 
+            model: Category
+        }],  
         where: {
-            category_name: "coffee",
-            // exclude: "cold",
+            category_name: ["hot"],
         },
-        include: [{ model: Item }],
-        
+       
     });
   
     const coffee = coffeeData.get({ plain: true });
