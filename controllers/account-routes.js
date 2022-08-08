@@ -2,9 +2,41 @@ const router = require('express').Router();
 
 const { User, Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');
+const genSidebar = require('../utils/sidebar');
 
 router.get('/', async (req, res) => {
     try {
+        console.log('before sidebar')
+        var sidebar = await genSidebar()
+        // console.log('sidebar')
+        console.log(sidebar)
+        const sidebarData = await Cart.findOne({
+            where: {
+                user_id: req.session.user_id,
+                completed: false
+            },
+            include: [{
+                model: User,
+                attributes: ['email']
+            },
+            {
+                model: Item,
+                attributes: ['item_name','price']
+            }]
+        });
+        console.log('sidebarData')
+        console.log(sidebarData)
+        if(sidebarData !== null){
+            var sidebar = sidebarData.get({ plain: true })
+        }else {
+            sidebar = {
+                "user_id": req.session.user_id,
+                "completed": false,
+                "itemIds": [],
+            }
+        }
+        console.log('sidebar')
+        console.log(sidebar)
         const activecartData = await Cart.findOne({
             where: {
                 user_id: req.session.user_id,
@@ -45,38 +77,12 @@ router.get('/', async (req, res) => {
         }]
         });
         const prevcarts = cartData.map((carts) =>  carts.get({ plain: true }))
-        res.render('account', {cart,prevcarts, loggedIn:req.session.loggedIn})
+        res.render('account', {cart,prevcarts,sidebar, loggedIn:req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/:id', async (req, res) => {
-    try {
-        const cartData = await Cart.findByPk(req.params.id, {
-            where: {
-                user_id: req.session.user_id
-            },
-            include: [{
-                model: User,
-                attributes: ['email']
-            },
-            {
-                model: Item,
-                attributes: ['item_name','price']
-        }]
-        });
-
-        if (!cartData) {
-            res.status(404).json({ message: 'No order found' });
-            return;
-          }
-
-        res.status(200).json(cartData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 
 
