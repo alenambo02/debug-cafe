@@ -44,4 +44,8 @@ if(process.env.NODE_ENV !== 'production'){
 }
 const stripePublic = process.env.STRIPE_PUBLIC_KEY
 const stripeSecret = process.env.STRIPE_SECRET_KEY
-console.log(stripePublic,stripeSecret)
+// console.log(stripePublic,stripeSecret)
+
+const stripe = require('stripe')(stripeSecret);
+
+const router = require('express').Router();

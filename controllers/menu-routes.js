@@ -30,7 +30,7 @@ router.get('/:category', async(req, res) => {
 
         // const category = categoryData.map((category) => category.get({ plain: true })
       
-        console.log(categoryData)
+        // console.log(categoryData)
         res.render('menu', {category, loggedIn: req.session.loggedIn});
         // res.status(200).json(categoryData)
       
@@ -152,6 +152,7 @@ try {
     res.render('menu', {tea, coffee, food, cold, loggedIn: req.session.loggedIn});
     
         // res.status(200).json(tea)
+
        
       
     } catch (err) {

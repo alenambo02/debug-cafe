@@ -1,6 +1,8 @@
 {{> header}}
-
+<p id="public" style="display: none">{{stripePublic}}</p>
+<p id="private" style="display: none">{{stripeSecret}}</p>
 <div id="container" class="row">
+
 <div id="container box" class="row w-75 h-50 position-absolute top-50 start-50 translate-middle bg-light ">
        <div class="d-flex p-2 align-items-center justify-content-center">
             <h3 class="text-black text-center">Order Confirmation</h3>
@@ -13,7 +15,7 @@
     </div>
         <div class="col-4 mx-auto justify-content-center">
             <ul class="list-group">    
-            <li class="list-group-item text-center">Order #{{cart.id}}</li>
+            <li class="list-group-item text-center" id="cart">Order #{{cart.id}}</li>
                 {{#each cart.items as |item|}}
                 <li class="list-group-item">
                     <div class="row align-items-start">
@@ -43,8 +45,9 @@
                 </li>
             </ul>
         </div>
+
 </div>
 </div>
 <script src="https://checkout.stripe.com/checkout.js"></script>
-<script src="./js/checkout.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
+<script src="./js/checkout.js"></script>
