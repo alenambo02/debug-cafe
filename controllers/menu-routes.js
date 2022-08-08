@@ -62,7 +62,7 @@ try {
     });
 
     const cold = coldData.get({ plain: true });
-
+    if (req.session.loggedIn) {
     const sidebarCartData = await Cart.findOne({
         where: {
             user_id: req.session.user_id,
@@ -86,7 +86,7 @@ try {
             "completed": false,
             "itemIds": [],
         }
-    }
+    }}
 
     res.render('menu', {tea, coffee, food, cold, sidebar, loggedIn: req.session.loggedIn});
     
