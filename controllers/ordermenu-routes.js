@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User, Item, Cart, Category } = require('../models')
+const { Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');
 
 //can view menu 
