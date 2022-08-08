@@ -1,7 +1,42 @@
+    
 {{> header}}
-{{#each items as |item| }}
+
+
+{{!-- <div>
+    {{#each coffee.items as |items|}}
+    {{> category}}
+    {{/each}}
+</div>
+
+<div>
+    {{#each cold.items as |item|}}
+    {{> category}}
+    {{/each}}
+</div> --}}
+
+
+    {{#each tea.items as |item|}}
+    <div>
+        <h3>HELLLO</h3>
+    {{> category}}
+
+    </div>
+    {{/each}}
+
+
+{{!-- <div>
+    {{#each food.items as |item|}}
+    {{> category}}
+    {{/each}}
+</div> --}}
+
+
+
+
+
+{{!-- {{#each items as |item| }}
     <section id="container" class="row">
-        <div id="menu-box" class="col-6">
+        <div id="menu-box" class="col-5">
             <div>
                 <button>{{ item.item_name }}</button>
                 {{!-- <h3>{{ item.item_name }}</h3> --}}
@@ -10,7 +45,7 @@
                 <p>{{ item.item_description }}</p>
                 <p> {{ item.price }}</p>
             </div>
-
+                
             <div>
                 
             </div>
