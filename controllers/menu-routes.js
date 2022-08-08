@@ -15,11 +15,7 @@ router.get('/:category', withAuth, async(req, res) => {
        
         const category = categoryData.get({ plain: true });
 
-   
-      
-        // console.log(categoryData)
         res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
-        // res.status(200).json(categoryData)
       
     } catch (err) {
         console.log(err);
@@ -38,17 +34,6 @@ try {
         include: [{ model: Item }],
     });
     const tea = teaData.get({ plain: true });
-
-    // const coffeeData = await Item.findAll({  
-    //     where,
-    //     include: [{ 
-    //         model: Category,
-    //         include: ["hot"]
-    //     }],
-       
-    // });
-    // const coffee = coffeeData.get({ plain: true });
-
 
     const coffeeData = await Category.findOne( {
         where: {
