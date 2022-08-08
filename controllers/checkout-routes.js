@@ -32,7 +32,7 @@ router.get('/', async(req, res) => {
         }
         const stripePublic = process.env.STRIPE_PUBLIC_KEY
         const stripeSecret = process.env.STRIPE_SECRET_KEY
-        console.log(stripePublic)   
+        // console.log(stripePublic)   
         res.render('checkout', {cart,stripePublic,stripeSecret, loggedIn:req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
