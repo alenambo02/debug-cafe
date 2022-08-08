@@ -1,8 +1,9 @@
 var getSum = (items) => {
 	var sum = 0
-	if(items === undefined){
-		return sum
-	}
+	console.log(items)
+		if(items === undefined){
+			return sum
+		}
 	if(items.length = 0){
 		return sum
 	}
