@@ -127,6 +127,24 @@ try {
   
     const coffee = coffeeData.get({ plain: true });
 
+    const foodData = await Category.findOne( {
+        where: {
+            category_name: "food",
+        },
+        include: [{ model: Item }],
+    });
+  
+    const food = foodData.get({ plain: true });
+   
+    const coldData = await Category.findOne( {
+        where: {
+            category_name: "cold",
+        },
+        include: [{ model: Item }],
+    });
+
+    const cold = coldData.get({ plain: true });
+  
     // const cold = coldData.get({ plain: true });
     console.log(tea)
     res.render('menu', {tea, coffee, food, cold, loggedIn: req.session.loggedIn});
