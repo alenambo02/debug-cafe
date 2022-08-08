@@ -1,5 +1,6 @@
 {{> header}}
-
+<p id="public" style="display: none">{{stripePublic}}</p>
+<p id="private" style="display: none">{{stripeSecret}}</p>
 <div id="container" class="row">
 
 <div id="container box" class="row w-75 h-50 position-absolute top-50 start-50 translate-middle bg-light ">
@@ -14,7 +15,7 @@
     </div>
         <div class="col-4 mx-auto justify-content-center">
             <ul class="list-group">    
-            <li class="list-group-item text-center">Order #{{cart.id}}</li>
+            <li class="list-group-item text-center" id="cart">Order #{{cart.id}}</li>
                 {{#each cart.items as |item|}}
                 <li class="list-group-item">
                     <div class="row align-items-start">
@@ -44,34 +45,9 @@
                 </li>
             </ul>
         </div>
+
 </div>
 </div>
 <script src="https://checkout.stripe.com/checkout.js"></script>
-{{!-- <script src="./js/checkout.js"></script> --}}
 <script src="https://js.stripe.com/v3/"></script>
-<script>
-    var stripePK = `{{stripePublic}}`
-    var stripeHandler = StripeCheckout.configure({
-    key: stripePK,
-    local: "auto",
-    token: function(token){
-        console.log('token')
-    }
-})
-
-function purchaseClicked(){
-    console.log("purchase clicked")
-    // var total = document.querySelector('#cart-total')
-    var totalEl = document.getElementById('cart-total')
-    var total = parseFloat((totalEl.textContent).replace('$', '')) * 100
-    console.log(total)
-    // console.log(num)
-    stripeHandler.open({
-        amount: total
-    })
-}
-
-var checkout = document.querySelector('#checkout-button')
-
-checkout.addEventListener("click", purchaseClicked)
-</script>
+<script src="./js/checkout.js"></script>
