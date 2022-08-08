@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const { User, Cart, Item, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -28,17 +29,6 @@ router.get('/:category', withAuth, async(req, res) => {
 
 
 
-//if trying to order they will be redirected to login
-// router.get('/login', (req, res) => {
-//     if (req.session.loggedIn) {
-//       res.redirect('/');
-//       return;
-//     }
-  
-//     res.render('login',{loggedIn: req.session.loggedIn});
-//   });
-
-
 router.get('/', async(req, res) => {
 try {
     const teaData = await Category.findOne( {
@@ -48,7 +38,7 @@ try {
         include: [{ model: Item }],
     });
     const tea = teaData.get({ plain: true });
-    
+
     // const coffeeData = await Item.findAll({  
     //     where,
     //     include: [{ 
@@ -58,6 +48,7 @@ try {
        
     // });
     // const coffee = coffeeData.get({ plain: true });
+
 
     const coffeeData = await Category.findOne( {
         where: {

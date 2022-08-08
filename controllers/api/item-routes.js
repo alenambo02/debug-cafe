@@ -30,6 +30,26 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/category/:category', async (req, res) => {
+    console.log(typeof req.params.category)
+    // var name = req.params.category
+    try {
+        const itemData = await Item.findAll({
+            include: [
+                {model: Category, where: {category_name: req.params.category}}
+            ],
+            // exclude: {
+            //     where: { category_name: "cold"}
+            // }
+            // include: {where: { categories: req.params.category}}
+        })
+        res.status(200).json(itemData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 
 // router.post('/', async (req, res) =>{
 //     try{
