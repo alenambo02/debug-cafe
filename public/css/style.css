@@ -163,19 +163,44 @@ form {
 
 /* menu handlebar styling (the menu without login view)
  ========================================================================== */ 
-#menu-box {
+#tea {
   background-color: rgb(214, 189, 154);
   margin: auto;
   border: 5px solid rgb(4, 4, 4);
   padding: 10px;
   margin-bottom: 10px;
+}
 
+#coffee {
+  background-color: rgb(214, 189, 154);
+  margin: auto;
+  border: 5px solid rgb(4, 4, 4);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#food {
+  background-color: rgb(214, 189, 154);
+  margin: auto;
+  border: 5px solid rgb(4, 4, 4);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#cold {
+    background-color: rgb(214, 189, 154);
+    margin: auto;
+    border: 5px solid rgb(4, 4, 4);
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 #item-title {
   font-weight: bold;
 }
+#item-price {
 
+}
 #item-description {
     color: rgb(84, 83, 83);
 }

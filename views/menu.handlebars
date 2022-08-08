@@ -2,33 +2,31 @@
 {{> header}}
 
 
-{{!-- <div>
-    {{#each coffee.items as |items|}}
-    {{> category}}
-    {{/each}}
-</div>
-
-<div>
-    {{#each cold.items as |item|}}
-    {{> category}}
-    {{/each}}
-</div> --}}
 
 
-    {{#each tea.items as |item|}}
-    <div>
-        <h3>HELLLO</h3>
-    {{> category}}
-
+<div id="menuboxes" class="row">
+    <div id="tea" class="col-3">
+        {{#each tea.items as |item|}}
+        <div>
+        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
+        <p id="item-title">{{ item_name }}</p>
+        <p id="item-price">{{ price }}</p>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
+
+    <div id="food" class="col-3">
+        {{#each cold.items as |item|}}
+        <div>
+        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
+        <p id="item-title">{{ item_name }}</p>
+        <p id="item-price">{{ price }}</p>
+        </div>
+        {{/each}}
+    </div>
 
 
-{{!-- <div>
-    {{#each food.items as |item|}}
-    {{> category}}
-    {{/each}}
-</div> --}}
+</div>
 
 
 
@@ -39,7 +37,7 @@
         <div id="menu-box" class="col-5">
             <div>
                 {{!-- <button id="item-title">{{ item.item_name }}</button> --}}
-                <h3 id="item-title">{{ item.item_name }}</h3>
+                {{!-- <h3 id="item-title">{{ item.item_name }}</h3>
 
             </div>
             <div>   
@@ -53,4 +51,4 @@
         </div> 
     </section>
 
-{{/each}}
+{{/each}} --}}

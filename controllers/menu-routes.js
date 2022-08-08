@@ -3,19 +3,19 @@ const router = require('express').Router();
 const { Item, Category } = require('../models')
 
 //allow them to view the menu
-router.get('/', async(req, res) => {
-    try {
-        const itemData = await Item.findAll({
-            include: [{ model: Category }]
-        })
-        const items = itemData.map((item) => item.get({ plain: true })
-    );
-        res.render('menu', {items, loggedIn: req.session.loggedIn})
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err)
-    }
-})
+// router.get('/', async(req, res) => {
+//     try {
+//         const itemData = await Item.findAll({
+//             include: [{ model: Category }]
+//         })
+//         const items = itemData.map((item) => item.get({ plain: true })
+//     );
+//         res.render('menu', {items, loggedIn: req.session.loggedIn})
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err)
+//     }
+// })
 
 router.get('/:category', async(req, res) => {
     try {
@@ -118,35 +118,20 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    // const coffeeData = await Category.findOne( {
-    //     where: {
-    //         category_name: "coffee",
-    //     },
-    //     include: [{ model: Item }],
-    // });
+    const coffeeData = await Category.findOne( {
+        where: {
+            category_name: "coffee",
+        },
+        include: [{ model: Item }],
+    });
   
-    // const coffee = coffeeData.get({ plain: true });
+    const coffee = coffeeData.get({ plain: true });
 
-    // const foodData = await Category.findOne( {
-    //     where: {
-    //         category_name: "food",
-    //     },
-    //     include: [{ model: Item }],
-    // });
-  
-    // const food = foodData.get({ plain: true });
-   
-    // const coldData = await Category.findOne( {
-    //     where: {
-    //         category_name: "cold",
-    //     },
-    //     include: [{ model: Item }],
-    // });
-  
     // const cold = coldData.get({ plain: true });
-    // res.render('menu', {tea, loggedIn: req.session.loggedIn});
     console.log(tea)
-        res.status(200).json(tea)
+    res.render('menu', {tea, coffee, food, cold, loggedIn: req.session.loggedIn});
+    
+        // res.status(200).json(tea)
        
       
     } catch (err) {
