@@ -18,6 +18,10 @@ const loginForm = async (event) => {
     }
   }
 };
+
+document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginForm);
   
 const signupForm = async (event) => {
     event.preventDefault();
@@ -39,10 +43,6 @@ const signupForm = async (event) => {
     }
   }
 };
-
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginForm);
     
 document
     .querySelector('.signup-form')
