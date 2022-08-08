@@ -2,14 +2,14 @@ const router = require('express').Router();
 
 const { User, Item, Cart, Category } = require('../models')
 const withAuth = require('../utils/auth');
-const genSidebar = require('../utils/sidebar');
+const genSidebar = require('../public/js/sidebar');
 
 router.get('/', async (req, res) => {
     try {
-        console.log('before sidebar')
-        var sidebar = await genSidebar()
-        console.log('sidebar')
-        console.log(sidebar)
+        // console.log('before sidebar')
+        // var sidebar = await genSidebar()
+        // console.log('sidebar')
+        // console.log(sidebar)
         const activecartData = await Cart.findOne({
             where: {
                 user_id: req.session.user_id,
