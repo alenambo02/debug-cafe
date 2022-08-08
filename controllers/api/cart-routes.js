@@ -28,6 +28,33 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
+router.get('/sidebar/:id',  async(req, res) => {
+  console.log('in sidebar api')
+  try {
+      const sidebarData = await Cart.findOne({
+          where: {
+              user_id: req.session.user_id,
+              completed: false
+          },
+          include: [{
+              model: User,
+              attributes: ['email']
+          },
+          {
+              model: Item,
+              attributes: ['item_name','price']
+          }]
+      });
+      console.log('sidebarData')
+      console.log(sidebarData)
+      res.status(200).json(sidebarData);
+  }catch(err){
+      console.log(err);
+      res.status(500).json(err);
+  }
+})
+
+
 // Get order by ID
 router.get('/:id', async (req, res) => {
     try {

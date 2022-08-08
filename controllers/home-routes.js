@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const fetchsidebar = require('../public/js/sidebar')
 // const { Item, Category } = require('../models')
 
 
