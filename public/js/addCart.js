@@ -25,5 +25,9 @@ const addToCart = async () => {
 }
 
 
-document.getElementsByClassName('addtocart')
-		.addEventListener('click', addToCart);
+var buttonEl = document.getElementsByClassName('addtocart')
+
+console.log(buttonEl)
+// buttonEl.addEventListener("click", addToCart)
+
+console.log(items)
