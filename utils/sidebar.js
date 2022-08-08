@@ -1,4 +1,6 @@
 const { User, Cart, Category, Item, CartItem } = require('../models');
+const router = require('express').Router();
+
 
 var getSidebar =  async(req, res) => {
     console.log('in sidebar')
@@ -32,11 +34,11 @@ var getSidebar =  async(req, res) => {
         console.log(sidebar)
         return sidebarData
     }catch(err){
-        // console.log(err);
+        console.log(err);
         // res.status(500).json(err);
     }
 
 }
-module.exports = getSidebar
+module.exports = getSidebar, router
 // var sidebar = document.querySelector('#sidebar')
 // sidebar.addEventListener('click', getSidebar)

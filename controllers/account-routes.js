@@ -8,33 +8,6 @@ router.get('/', async (req, res) => {
     try {
         console.log('before sidebar')
         var sidebar = await genSidebar()
-        // console.log('sidebar')
-        console.log(sidebar)
-        const sidebarData = await Cart.findOne({
-            where: {
-                user_id: req.session.user_id,
-                completed: false
-            },
-            include: [{
-                model: User,
-                attributes: ['email']
-            },
-            {
-                model: Item,
-                attributes: ['item_name','price']
-            }]
-        });
-        console.log('sidebarData')
-        console.log(sidebarData)
-        if(sidebarData !== null){
-            var sidebar = sidebarData.get({ plain: true })
-        }else {
-            sidebar = {
-                "user_id": req.session.user_id,
-                "completed": false,
-                "itemIds": [],
-            }
-        }
         console.log('sidebar')
         console.log(sidebar)
         const activecartData = await Cart.findOne({
