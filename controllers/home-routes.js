@@ -4,6 +4,7 @@ const { User, Item, Category, Cart } = require('../models')
 
 router.get('/', async(req, res) => {
     try {
+        if (req.session.loggedIn) {
           const sidebarCartData = await Cart.findOne({
             where: {
                 user_id: req.session.user_id,
@@ -27,7 +28,7 @@ router.get('/', async(req, res) => {
                 "completed": false,
                 "itemIds": [],
             }
-        }
+        }}
         res.render('homepage', {sidebar, loggedIn: req.session.loggedIn})
     } 
     catch (err) {
