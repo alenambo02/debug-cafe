@@ -12,15 +12,16 @@ try {
         include: [{ model: Item }],
     });
     const tea = teaData.get({ plain: true });
-    
+
     const coffeeData = await Category.findOne( {
         where: {
             category_name: "coffee",
         },
         include: [{ model: Item }],
     });
-  
     const coffee = coffeeData.get({ plain: true });
+
+
 
     const foodData = await Category.findOne( {
         where: {
@@ -64,7 +65,13 @@ try {
             "itemIds": [],
         }
     }
-    res.render('menu', {tea, coffee, food, cold,sidebar, loggedIn: req.session.loggedIn});
+
+    res.render('menu', {tea, coffee, food, cold, sidebar, loggedIn: req.session.loggedIn});
+    
+        // res.status(200).json(tea)
+
+       
+      
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

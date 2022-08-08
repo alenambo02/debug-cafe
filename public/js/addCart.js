@@ -24,4 +24,6 @@ const addToCart = async () => {
     // }
 }
 
-var buttonEl= document.getElementsByClassName('addtocart').addEventListener('click', addToCart);
+
+document.getElementsByClassName('addtocart')
+		.addEventListener('click', addToCart);
