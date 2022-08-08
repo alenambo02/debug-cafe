@@ -2,9 +2,9 @@ const router = require('express').Router();
 
 const sequelize = require('sequelize');
 const { User, Item, Cart, Category } = require('../models')
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth')
 
-router.get('/:id', async(req, res) => {
+router.get('/:id', withAuth, async(req, res) => {
     try {
         const cartData = await Cart.findByPk(req.params.id,{
             where: {
@@ -29,7 +29,32 @@ router.get('/:id', async(req, res) => {
                 "itemIds": [],
             }
         }
-        res.render('confirmation', {cart, loggedIn:req.session.loggedIn})
+
+        const sidebarCartData = await Cart.findOne({
+            where: {
+                user_id: req.session.user_id,
+                completed: false
+            },
+            include: [{
+                model: User,
+                attributes: ['email']
+            },
+            {
+                model: Item,
+                attributes: ['item_name','price']
+            }]
+        });
+        // console.log(activecartData)
+        if(sidebarCartData !== null){
+           var sidebar = sidebarCartData.get({ plain: true })
+        }else {
+            sidebar = {
+                "user_id": req.session.user_id,
+                "completed": false,
+                "itemIds": [],
+            }
+        }
+        res.render('confirmation', {cart,sidebar, loggedIn:req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
     }
