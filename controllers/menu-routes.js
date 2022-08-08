@@ -1,26 +1,7 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-
 const { User, Cart, Item, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
-//allow them to view the menu
-// router.get('/', async(req, res) => {
-//     try {
-//         const itemData = await Item.findAll({
-//             include: [{ model: Category }]
-//         })
-//         const items = itemData.map((item) => item.get({ plain: true })
-//     );
-//         res.render('menu', {items, loggedIn: req.session.loggedIn})
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err)
-//     }
-// })
-=======
-const { Item, Category } = require('../models')
-const withAuth = require('../utils/auth');
 
 router.get('/:category', withAuth, async(req, res) => {
     try {
@@ -45,7 +26,7 @@ router.get('/:category', withAuth, async(req, res) => {
     }
 });
 
->>>>>>> bd955fbfe0ff8c478f45d35f4db7eb4c9d73751f
+
 
 //if trying to order they will be redirected to login
 // router.get('/login', (req, res) => {
@@ -68,17 +49,25 @@ try {
     });
     const tea = teaData.get({ plain: true });
     
-    const coffeeData = await Item.findAll({
-        include: [{ 
-            model: Category
-        }],  
-        where: {
-            category_name: ["hot"],
-        },
+    // const coffeeData = await Item.findAll({  
+    //     where,
+    //     include: [{ 
+    //         model: Category,
+    //         include: ["hot"]
+    //     }],
        
+    // });
+    // const coffee = coffeeData.get({ plain: true });
+
+    const coffeeData = await Category.findOne( {
+        where: {
+            category_name: "coffee",
+        },
+        include: [{ model: Item }],
     });
-  
     const coffee = coffeeData.get({ plain: true });
+
+
 
     const foodData = await Category.findOne( {
         where: {
@@ -123,7 +112,7 @@ try {
         }
     }
 
-    res.render('menu', {tea, coffee, food, cold,sidebar, loggedIn: req.session.loggedIn});
+    res.render('menu', {tea, coffee, food, cold, sidebar, loggedIn: req.session.loggedIn});
     
         // res.status(200).json(tea)
 
