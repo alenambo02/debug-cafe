@@ -1,6 +1,6 @@
 const addToCart = async (event) => {
     event.preventDefault();
-  
+
     const item_name = document.querySelector('#item_name').value.trim();
     const item_description = document.querySelector('#item_description').value.trim();
     const price = document.querySelector('#price').value.trim();
