@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Item, Category, Cart } = require('../models')
 
-
 router.get('/', async(req, res) => {
     try {
         if (req.session.loggedIn) {
@@ -20,14 +19,30 @@ router.get('/', async(req, res) => {
             }]
         });
         // console.log(activecartData)
+
         if(sidebarCartData !== null){
             var sidebar = sidebarCartData.get({ plain: true })
         }else {
-            sidebar = {
+            Cart.create({
                 "user_id": req.session.user_id,
                 "completed": false,
-                "itemIds": [],
-            }
+                "itemIds": []
+            })
+            .then((cart) => {
+              if (req.body.itemIds.length) {
+                const CartItemIdArr = req.body.itemIds.map((item_id) => {
+                  return {
+                    cart_id: cart.id,
+                    item_id,
+                  };
+                });
+                return CartItem.bulkCreate(CartItemIdArr);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+            console.log("order created")
         }}
         res.render('homepage', {sidebar, loggedIn: req.session.loggedIn})
     } 
