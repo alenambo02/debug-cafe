@@ -50,11 +50,12 @@ Below is an image that displays how these components all interact with one anoth
 - Sequelize ORM  
 - (User Authentication - how?)
 
-- (New Package?)
+- New Technology: Stripe npm package
+Since this is an e-commerce website, the application required credit card validation. This was done utilizing Stripe npm package.
 
 ## Link
 
-[Visit The Debug Café here][https://git.heroku.com/mysterious-savannah-82930.git]
+[Visit The Debug Café here][https://the-debug-cafe.herokuapp.com/]
 
 ## Usage
 
@@ -62,12 +63,14 @@ Simply access the deployed link above. If you are not logged in, you can still b
 
 ## Demo
 
-![site demo](/images/)
+![site demo](gif)
 <br>
 
 ### User Story
 ```md
-As a USER, I want to be able to browse through a list of available items and their prices SO THAT I can see what I am able to order.
+As a user, I want to be able to browse through a menu of available items and their prices so that I can see if I want to order before having to login.
+
+
 
 THEN I can see the descriptions of available items SO THAT I can see what it is before I make my order.
 
@@ -79,23 +82,33 @@ THEN I can checkout an order where I am directed to a page SO THAT I can confirm
 
 ### Code Snippets
 
-This...
+For this application, handlebars was the template engine we utilized to dynamically generate HTML pages for the user. An efficent component that handlebars offers is the ability to utilize partials making it easier to reuse that code snippet throughtout other templates by calling on it. below is an example of a partial utilized in this project:
 
-```java
-    //code goes here
-```
+![alt text](./images/partial%20snippet.png)
 
-This...
+And here you can see it being called on in another template:
 
-```java
-    //code goes here
-```
+![alt text](./images/handlebar%20marked%20menu.png)
 
-This...
+The code above is a perfect example of how handlebars template engine is useful in order to dynamically generate HTML. Here you can view how different menu items are displayed by their food/drink category. 
 
-```java
-    //code goes here
-```
+------------------------------------------------------------------------
+Unauthorized User && Authorized User
+
+This helper function below allows to easily implement what a user can access before authenticating and what they are allowed to access once authorized. This function can be called inside any route needed, once implement the user will be redirected if they attempt to access information that is only available to authorized users.
+
+![alt text](./images/auth.png)
+
+Below you can view the user being redirected to login, in order to be able to view a detailed menu and order online: 
+
+![alt text](./images/gif%20with%20auth.gif)
+
+Above you can also glance at the sidebar the will allow the user to add an item they would like to purchase. They can view the sidebar whenever needed once logged in and checkout when ready. 
+
+
+------------------------------------------------------------------------
+
+
 ## Learning Objectives
 
 ... 
@@ -117,6 +130,11 @@ This...
 ## Credits
 
 UCB - Coding Bootcamp
+Helpful resources in order to help implement Stripe npm package:
+[Video]: https://www.youtube.com/watch?v=mI_-1tbIXQI&t=2s 
+[Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
+[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
+[MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
 
 
 ## License
@@ -127,6 +145,3 @@ UCB - Coding Bootcamp
 
 © 2022 Maverick Wong, Alejandra Izquierdo, Clement Koo. All Rights Reserved.
 
-[Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
-[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
-[MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
