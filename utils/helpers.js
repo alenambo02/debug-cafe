@@ -22,6 +22,10 @@ var getTotal = (items) => {
 	return sum+tax
 }
 
+var someFunc = (number) =>{
+	console.log(number)
+}
+
 module.exports = {
     openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -34,5 +38,6 @@ module.exports = {
 	},
     getSum,
 	getTax, 
-	getTotal
+	getTotal,
+	someFunc
 };
