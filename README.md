@@ -2,6 +2,16 @@
 
 The Debug Café “POS” (point-of-sale) is a web application designed to help facilitate online coffee shop orders and transactions. While its name implies its intended function for coffee shop orders, it can be used for a variety of other forms of retailing.
 
+This project utilizes the MVC pattern that helps divide application logic into three main components: 
+- The model,
+- the view,
+- and the controller.
+
+
+Below is an image that displays how these components all interact with one another.
+
+![alt text](./images/model-view-controller%20project%202.webp)
+
 ## Table of Contents
 
 - [Technologies Used](#technologies)
@@ -45,7 +55,7 @@ The Debug Café “POS” (point-of-sale) is a web application designed to help 
 
 ## Link
 
-[Visit The Debug Café here][Deployed Link]
+[Visit The Debug Café here][https://git.heroku.com/mysterious-savannah-82930.git]
 
 ## Usage
 
@@ -119,4 +129,6 @@ UCB - Coding Bootcamp
 © 2022 Maverick Wong, Alejandra Izquierdo, Clement Koo. All Rights Reserved.
 
 [Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
+[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
+[MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
 [Deployed Link]:  https://git.heroku.com/mysterious-savannah-82930.git
