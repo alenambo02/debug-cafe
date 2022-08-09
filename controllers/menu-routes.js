@@ -3,28 +3,6 @@ const router = require('express').Router();
 const { User, Cart, Item, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
-
-router.get('/:category', withAuth, async(req, res) => {
-    try {
-        const categoryData = await Category.findOne( {
-            where: {
-                category_name: req.params.category
-            },
-            include: [{ model: Item }],
-        });
-       
-    const category = categoryData.get({ plain: true });
-
-    res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
-      
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
-
-
 router.get('/', async(req, res) => {
 try {
     const teaData = await Category.findOne( {
@@ -133,8 +111,9 @@ router.get('/:category',withAuth, async(req, res) => {
                 "itemIds": [],
             }
         }
+        console.log(sidebar)
         const category = categoryData.get({ plain: true });      
-        // console.log(categoryData)
+        // console.log(category)
         res.render('ordermenu', {category,sidebar, loggedIn: req.session.loggedIn});
         // res.status(200).json(categoryData)
       

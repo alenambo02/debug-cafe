@@ -1,13 +1,18 @@
 {{> header}}
+<script>var order_id = '{{sidebar.id}}'; var user_id = '{{sidebar.user_id}}'</script>
+
 <div id="contorder" class="col-5 mx-auto justify-content-center d-grid gap-3 gap-3">
-        {{#each category.items as |item|}}
-        <div id="orderitem">
-        <p id="item-title">{{ item_name }}</p>
-        <p id="item-description">{{ item_description }}</p>
-        <p id="item-price"> $ {{ price }}</p>
-        <button class="addtocart"> Add to Cart </button>
-        </div>
-        {{/each}}
-         
+
+	{{#each category.items as |item|}}
+	<div id="orderitem">
+	<p id="item-title">{{ item_name }}</p>
+	<p id="item-description">{{ item_description }}</p>
+	<p id="item-price"> $ {{ price }}</p>
+	<button class="addtocart" class="button" data-id="{{item.id}}"> Add to Cart </button>
+	{{!-- <div id="item{{@index}}" style="display: none;"></div> --}}
+	</div>
+	{{/each}}
+  
 </div>
 
+<script src="/js/addCart.js"></script>
