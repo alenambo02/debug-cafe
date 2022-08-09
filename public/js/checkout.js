@@ -14,7 +14,7 @@ const order = cart.split('#')
 const id = order[order.length-1]
 // console.log(id)
 var redirect = () =>{
-    location.replace(`/confirm/${id}`)
+    window.location.href = (`confirm/${id}`)
 }
 var totalEl = document.getElementById('cart-total')
 var total = parseFloat((totalEl.textContent).replace('$', '')) * 100
@@ -36,6 +36,11 @@ var stripeHandler = StripeCheckout.configure({
         console.log(token)
         if(token){
             console.log('hi')
+            const closeout = fetch(`/api/carts/${order_id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ completed:true }),
+                headers: { 'Content-Type': 'application/json' },
+            });
             redirect()
             // stripe.charges.create({
             //     amount: total,

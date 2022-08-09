@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Item, Category } = require('../../models');
+const { Op } = require("sequelize");
 
 router.get('/', async (req, res) =>{
     try{
@@ -31,12 +32,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/category/:category', async (req, res) => {
-    console.log(typeof req.params.category)
-    // var name = req.params.category
     try {
         const itemData = await Item.findAll({
             include: [
-                {model: Category, where: {category_name: req.params.category}}
+                {model: Category,
+                    where:{ 
+                        [Op.and]: [{category: req.params.category}, {category: 'hot'}]}}
             ],
             // exclude: {
             //     where: { category_name: "cold"}

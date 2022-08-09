@@ -9,29 +9,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 const addToCart = async(e) => {
-	console.log('user id: ',user_id)
-	console.log("order id: ",order_id)
-	console.log('click')
-	var item_id = e.target.getAttribute('data-id')
-	console.log('item id: ',item_id)
+	var item_id = Number(e.target.getAttribute('data-id'))
 	var response = await fetch(`/api/carts/${order_id}`)
 	var data = await response.json()
-	// const response = await fetch(`/api/carts/${order_id}`, {
-		// 	method: 'Get',
-		// 	body: JSON.stringify({ user_id: user_id, item_id }),
-		// 	headers: { 'Content-Type': 'application/json' },
-		// });}
-	console.log(data)
-	itemArray(data.items)
-	console.log(itemArr)
-	if(item_id){
-	}
+	const idArr = itemArray(data.items)
+	idArr.push(item_id)
+	const update = await fetch(`/api/carts/${order_id}`, {
+		method: 'PUT',
+		body: JSON.stringify({ user_id: user_id, completed:false, itemIds: idArr }),
+		headers: { 'Content-Type': 'application/json' },
+	});
+	// var complete = await update.json()
+	// location.reload()
+	window.location.href = '/menu'
+	alert('Item Added To Cart')
 }
 
 function itemArray(arr){
+	var itemIdArr = []
 	for(let i = 0; i < arr.length; i++){
-		
+		itemIdArr.push(arr[i].cartItem.item_id)
 	}
+	// console.log(itemIdArr)
+	return itemIdArr
 }
 
 // api/carts/order_id
