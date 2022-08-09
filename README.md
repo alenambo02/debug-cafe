@@ -2,16 +2,6 @@
 
 The Debug Café “POS” (point-of-sale) is a web application designed to help facilitate online coffee shop orders and transactions. While its name implies its intended function for coffee shop orders, it can be used for a variety of other forms of retailing.
 
-This project utilizes the MVC pattern that helps divide application logic into three main components: 
-- The model,
-- the view,
-- and the controller.
-
-
-Below is an image that displays how these components all interact with one another.
-
-![alt text](./images/model-view-controller%20project%202.webp)
-
 ## Table of Contents
 
 - [Technologies Used](#technologies)
@@ -36,8 +26,6 @@ Below is an image that displays how these components all interact with one anoth
 - Session Storage
 - *[__Stripe__](https://stripe.com/docs/js)
 
-
-
 ### Backend:
 
 - Node
@@ -61,7 +49,7 @@ Simply access the deployed link above. If you are not logged in, you can still b
 
 ## Demo
 
-![site demo](gif)
+![site demo](/images/demo.gif)
 <br>
 
 ### User Story
@@ -75,6 +63,17 @@ THEN I can create an order with a list of the items I’m about to purchase on t
 THEN I can checkout an order where I am directed to a page SO THAT I can confirm my checkout.
 ```
 ### Models
+
+This project utilizes the MVC pattern that helps divide application logic into three main components: 
+- The model,
+- The view, and...
+- The controller
+
+
+Below is an image that displays how these components all interact with one another.
+
+![model](./images/model-view-controller%20project%202.webp)
+
 Every MVC uses models. Models are very important component because these objects carry all the necessary data need throughout the application.  The controllers (aka routes) contols the data flow into model object and updates the view whenever data changes. Below you can see the structure of the models implemented in this application.
 
 ![alt text](./images/models.png)
@@ -83,7 +82,23 @@ Every MVC uses models. Models are very important component because these objects
 
 For this application, handlebars was the template engine we utilized to dynamically generate HTML pages for the user. An efficent component that handlebars offers is the ability to utilize partials making it easier to reuse that code snippet throughtout other templates by calling on it. below is an example of a partial utilized in this project:
 
-![alt text](./images/partial%20snippet.png)
+```html
+<header>
+    <div id="menu-image">
+        <a href="/"><img id="logo" src="https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png" alt="Cafe logo"></a>
+    </div> 
+    <nav id="homepage-navbar" type="button" class="btn btn-outline-secondary">
+            <a href="/menu">Menu</a> |
+            {{#if loggedIn}}    
+            <a href="/account">My Account</a> |
+            <a href="" id="logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+    </nav>
+    
+</header>
+```
 
 And here you can see it being called on in another template:
 
@@ -96,7 +111,17 @@ Unauthorized User && Authorized User
 
 This helper function below allows to easily implement what a user can access before authenticating and what they are allowed to access once authorized. This function can be called inside any route needed, once implement the user will be redirected if they attempt to access information that is only available to authorized users.
 
-![alt text](./images/auth.png)
+```java
+const withAuth = (req, res, next) => {
+    if (!req.session.loggedIn) {
+      res.redirect('/login');
+    } else {
+      next();
+    }
+};
+
+module.exports = withAuth;
+```
 
 Below you can view the user being redirected to login, in order to be able to view a detailed menu and order online: 
 
@@ -104,9 +129,16 @@ Below you can view the user being redirected to login, in order to be able to vi
 
 Above you can also glance at the sidebar the will allow the user to add an item they would like to purchase. They can view the sidebar whenever needed once logged in and checkout when ready. 
 
-The following code snippet, was used in order to add an event listener to the "add to cart" button an diterate through it and be able to add it to the sidebar, which is the cart. 
+The following code snippet, was used in order to add an event listener to the "add to cart" button and iterate through it and be able to add it to the sidebar, which is the cart. 
 
-![alt text](./images/sidebar%20add.png)
+```java
+document.addEventListener("DOMContentLoaded", function(event) { 
+	var buttonEl = document.getElementsByClassName('addtocart')
+	for (var i = 0 ; i < buttonEl.length; i++) {
+		buttonEl[i].addEventListener('click' , addToCart ) ; 
+	}
+})
+```
 
 -------------------------------------------------------------------------------------------------
 Order & Order confirmation
@@ -146,8 +178,8 @@ UCB - Coding Bootcamp
 ### Helpful resources in order to help implement Stripe npm package:
 
 -[Video]: https://www.youtube.com/watch?v=mI_-1tbIXQI&t=2s 
-[MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
-
+-[MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
+-[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
 
 ## License
 
@@ -158,5 +190,5 @@ UCB - Coding Bootcamp
 © 2022 Maverick Wong, Alejandra Izquierdo, Clement Koo. All Rights Reserved.
 
 [Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
-[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
+
 [Deployed Link]: https://the-debug-cafe.herokuapp.com/
