@@ -111,8 +111,9 @@ router.get('/:category',withAuth, async(req, res) => {
                 "itemIds": [],
             }
         }
+        console.log(sidebar)
         const category = categoryData.get({ plain: true });      
-        // console.log(categoryData)
+        // console.log(category)
         res.render('ordermenu', {category,sidebar, loggedIn: req.session.loggedIn});
         // res.status(200).json(categoryData)
       

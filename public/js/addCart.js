@@ -1,33 +1,42 @@
-const addToCart = async () => {
-	console.log("click")
-    // const item_name = document.querySelector('#item_title')
-    // const price = document.querySelector('#item_price')
-  
-    // if (item_name && price) {
-    //   const response = await fetch(`/api/item`, {
-    //     method: 'POST',
-    //     body: JSON.stringify(
-    //       { 
-    //         item_name,
-    //         price,
-    //      }),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   });
-  
-    //   if (response.ok) {
-    //     document.location.replace('/');
-    //   } else {
-    //     alert('Failed to add items to cart, please try again.');
-    //   }
-    // }
+
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+	var buttonEl = document.getElementsByClassName('addtocart')
+	for (var i = 0 ; i < buttonEl.length; i++) {
+		buttonEl[i].addEventListener('click' , addToCart ) ; 
+	}
+})
+
+
+const addToCart = async(e) => {
+	console.log('user id: ',user_id)
+	console.log("order id: ",order_id)
+	console.log('click')
+	var item_id = e.target.getAttribute('data-id')
+	console.log('item id: ',item_id)
+	var response = await fetch(`/api/carts/${order_id}`)
+	var data = await response.json()
+	// const response = await fetch(`/api/carts/${order_id}`, {
+		// 	method: 'Get',
+		// 	body: JSON.stringify({ user_id: user_id, item_id }),
+		// 	headers: { 'Content-Type': 'application/json' },
+		// });}
+	console.log(data)
+	itemArray(data.items)
+	console.log(itemArr)
+	if(item_id){
+	}
 }
 
+function itemArray(arr){
+	for(let i = 0; i < arr.length; i++){
+		
+	}
+}
 
-var buttonEl = document.getElementsByClassName('addtocart')
-
-console.log(buttonEl)
-// buttonEl.addEventListener("click", addToCart)
-
-console.log(items)
+// api/carts/order_id
+// {
+// 	"user_id": userid,
+// 	"completed": false,
+// 	"itemIds": []
+// }
