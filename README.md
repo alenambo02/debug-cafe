@@ -70,15 +70,16 @@ Simply access the deployed link above. If you are not logged in, you can still b
 ```md
 As a user, I want to be able to browse through a menu of available items and their prices so that I can see if I want to order before having to login.
 
-
-
 THEN I can see the descriptions of available items SO THAT I can see what it is before I make my order.
 
 THEN I can create an order with a list of the items I’m about to purchase on the sidebar SO THAT I can keep track of my order and how much I am spending on them.
 
 THEN I can checkout an order where I am directed to a page SO THAT I can confirm my checkout.
 ```
+### Models
+Every MVC uses models. Models are very important component because these objects carry all the necessary data need throughout the application.  The controllers (aka routes) contols the data flow into model object and updates the view whenever data changes. Below you can see the structure of the models implemented in this application.
 
+![alt text](./images/models.png)
 
 ### Code Snippets
 
@@ -92,7 +93,7 @@ And here you can see it being called on in another template:
 
 The code above is a perfect example of how handlebars template engine is useful in order to dynamically generate HTML. Here you can view how different menu items are displayed by their food/drink category. 
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 Unauthorized User && Authorized User
 
 This helper function below allows to easily implement what a user can access before authenticating and what they are allowed to access once authorized. This function can be called inside any route needed, once implement the user will be redirected if they attempt to access information that is only available to authorized users.
@@ -105,8 +106,20 @@ Below you can view the user being redirected to login, in order to be able to vi
 
 Above you can also glance at the sidebar the will allow the user to add an item they would like to purchase. They can view the sidebar whenever needed once logged in and checkout when ready. 
 
+The following code snippet, was used in order to add an event listener to the "add to cart" button an diterate through it and be able to add it to the sidebar, which is the cart. 
 
-------------------------------------------------------------------------
+![alt text](./images/sidebar%20add.png)
+
+-------------------------------------------------------------------------------------------------
+Order & Order confirmation
+
+Below you can view how to fetch current order information inside cart and how the PUT method is utilized to update the the cart with the new item added to the order, which is an array of the items the user is going to purchase.
+
+![alt text](./images/save%20order.png)
+
+Once the user is done ordering they can place their order and will be redirected to page where they will be asked to input their info as well as credit card information. If the user input is valid then the user will be redirected to the following page.
+
+![alt text](./images/order%20confirm%20page.png)
 
 
 ## Learning Objectives
