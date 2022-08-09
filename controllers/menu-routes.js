@@ -13,9 +13,9 @@ router.get('/:category', withAuth, async(req, res) => {
             include: [{ model: Item }],
         });
        
-        const category = categoryData.get({ plain: true });
+    const category = categoryData.get({ plain: true });
 
-        res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
+    res.render('ordermenu', {category, loggedIn: req.session.loggedIn});
       
     } catch (err) {
         console.log(err);
@@ -146,3 +146,15 @@ router.get('/:category',withAuth, async(req, res) => {
 
 
 module.exports = router;
+
+
+
+
+
+// const coffeeData = await Category.findOne( {
+//     where: {
+//         category_name: "coffee",
+//     },
+//     include: [{ model: Item }],
+// });
+// const coffee = coffeeData.get({ plain: true });

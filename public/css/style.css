@@ -100,10 +100,11 @@ form {
   background-color: rgb(214, 189, 154);
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
-  height: min-content;
+  height: 350px;
+  overflow-y: scroll;
   margin: 20px;
   width: 350px;
- 
+  padding-bottom: 20px;
 }
 
 #coffee {
@@ -112,14 +113,20 @@ form {
   text-align: center;
   margin: 20px; 
   width: 350px;
+  overflow-y: scroll;
+  height: 350px;
+  padding-bottom: 20px;
 }
 
 #food {
   background-color: rgb(214, 189, 154);
   border: 5px solid rgb(4, 4, 4);
   text-align: center;
+  overflow-y: scroll;
+  height: 350px;
   margin: 20px; 
   width: 350px;
+  padding-bottom: 20px;
 }
 
 #cold {
@@ -127,8 +134,18 @@ form {
     border: 5px solid rgb(4, 4, 4);
     text-align: center;
     margin: 20px; 
-    height: min-content;
+    overflow-y: scroll;
+    height: 350px;
     width: 350px;
+    padding-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(144, 121, 90);
+  border-top: 15px solid transparent;
+  border-bottom: 35px solid transparent;
+  background-clip: padding-box;
 }
 
 #menuboxes {
@@ -137,21 +154,25 @@ form {
     margin-left: -8px;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .menu-title {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 600;
   border-bottom: double;
+  padding: 20px;
 }
 
 #btn {
     width: 300px;
     background-color: rgb(122, 99, 73);
-   
     align-items: center;
-   
+    margin-top: 20px;
+}
+
+#menu-sec {
+  margin-top: 30px;
 }
 
 /* order styling ========================================================= */

@@ -1,10 +1,7 @@
 {{> header}}
-
-
 <div id="contorder" class="col-5 mx-auto justify-content-center d-grid gap-3 gap-3">
         {{#each category.items as |item|}}
         <div id="orderitem">
-        {{!-- <h3 id="item-title">{{ category.category_name }}</h3> --}}
         <p id="item-title">{{ item_name }}</p>
         <p id="item-description">{{ item_description }}</p>
         <p id="item-price"> $ {{ price }}</p>
