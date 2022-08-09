@@ -27,8 +27,7 @@ Below is an image that displays how these components all interact with one anoth
 
 ### Frontend:
 
-- HTML
-- CSS
+- Handlebars
 - Bootstrap
 - Javascript
 - jQuery
@@ -50,7 +49,7 @@ Below is an image that displays how these components all interact with one anoth
 - MySQL
 - Sequelize ORM  
 - (User Authentication - how?)
-- Handlebars
+
 - (New Package?)
 
 ## Link
@@ -131,4 +130,3 @@ UCB - Coding Bootcamp
 [Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
 [Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
 [MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
-[Deployed Link]:  https://git.heroku.com/mysterious-savannah-82930.git
