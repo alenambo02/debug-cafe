@@ -27,18 +27,15 @@ Below is an image that displays how these components all interact with one anoth
 
 ### Frontend:
 
-- Handlebars
-- Bootstrap
+- HTML
+- CSS
 - Javascript
-- jQuery
-- Web API
-- CSS Framework
-- Wireframe tool
+- Fetch
+- Bootstrap
+- Figma
 - Session Storage
-- [Stripe API](https://stripe.com/docs/js)
-- (Local Storage?)
-- (Session Storage?)
-- (New JS Library 3rd Party API?)
+- *[__Stripe__](https://stripe.com/docs/js)
+
 
 
 ### Backend:
@@ -48,14 +45,15 @@ Below is an image that displays how these components all interact with one anoth
 - Express
 - MySQL
 - Sequelize ORM  
-- (User Authentication - how?)
+- BCrypt
+- Handlebars
+- *[__Stripe__](https://stripe.com/docs/js)
 
-- New Technology: Stripe npm package
-Since this is an e-commerce website, the application required credit card validation. This was done utilizing Stripe npm package.
+*Since this is an e-commerce website, the application required credit card validation. This was done utilizing Stripe npm package.
 
 ## Link
 
-[Visit The Debug Café here][https://the-debug-cafe.herokuapp.com/]
+[Visit The Debug Café here][Deployed Link]
 
 ## Usage
 
@@ -129,11 +127,11 @@ Once the user is done ordering they can place their order and will be redirected
 ## Developer
 
 ### **Maverick Wong**
-[LinkdIn]() |
+[LinkdIn](https://www.linkedin.com/in/maverick-wong-4488b4241/) |
 [GitHub](https://github.com/maverickwong17)
 
 ### **Alejandra Izquierdo**
-[LinkdIn]() |
+[LinkdIn](https://www.linkedin.com/in/alejandra-n-izquierdo-b8488516b/) |
 [GitHub](https://github.com/alenambo02)
 
 ### **Clement Koo**
@@ -143,10 +141,11 @@ Once the user is done ordering they can place their order and will be redirected
 ## Credits
 
 UCB - Coding Bootcamp
-Helpful resources in order to help implement Stripe npm package:
-[Video]: https://www.youtube.com/watch?v=mI_-1tbIXQI&t=2s 
-[Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
-[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
+
+
+### Helpful resources in order to help implement Stripe npm package:
+
+-[Video]: https://www.youtube.com/watch?v=mI_-1tbIXQI&t=2s 
 [MVC image]: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-model-view-control-mvc/
 
 
@@ -158,3 +157,6 @@ Helpful resources in order to help implement Stripe npm package:
 
 © 2022 Maverick Wong, Alejandra Izquierdo, Clement Koo. All Rights Reserved.
 
+[Logo]:  https://cdn.discordapp.com/attachments/1004083809429508196/1005365130462236763/cafe_image.png
+[Coffee image]: https://coffee.alexflipnote.dev/9EQBz-4RLvQ_coffee.jpg
+[Deployed Link]: https://the-debug-cafe.herokuapp.com/
