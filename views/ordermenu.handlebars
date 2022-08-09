@@ -2,6 +2,7 @@
 <script>var order_id = '{{sidebar.id}}'; var user_id = '{{sidebar.user_id}}'</script>
 
 <div id="contorder" class="col-5 mx-auto justify-content-center d-grid gap-3 gap-3">
+
 	{{#each category.items as |item|}}
 	<div id="orderitem">
 	<p id="item-title">{{ item_name }}</p>
@@ -11,6 +12,7 @@
 	{{!-- <div id="item{{@index}}" style="display: none;"></div> --}}
 	</div>
 	{{/each}}
+  
 </div>
 
 <script src="/js/addCart.js"></script>

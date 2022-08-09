@@ -125,3 +125,15 @@ router.get('/:category',withAuth, async(req, res) => {
 
 
 module.exports = router;
+
+
+
+
+
+// const coffeeData = await Category.findOne( {
+//     where: {
+//         category_name: "coffee",
+//     },
+//     include: [{ model: Item }],
+// });
+// const coffee = coffeeData.get({ plain: true });
